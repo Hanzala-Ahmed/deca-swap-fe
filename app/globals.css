@@ -3,19 +3,105 @@
 @tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --border-primary: #373D3F;
+  --text-gray: #666666;
+  --primary-red: #E43A3D;
+  --primary: #40F798;
+  --secondary: #114532;
+  --white72: rgba(255, 255, 255, 0.72);
+  --white12: rgba(255, 255, 255, 0.12);
+  --white30: rgba(255, 255, 255, 0.3);
+  --white10: rgba(255, 255, 255, 0.1);
+  --white005: rgba(255, 255, 255, 0.05);
+  --white14: rgba(255, 255, 255, 0.14);
+  --white52: rgba(255, 255, 255, 0.52);
+  --ongoing: rgba(209, 152, 46, 1);
+  --scheduled: rgba(9, 165, 180, 1);
+  --border-bottom: #1B1D20;
+  --primary-gradient: linear-gradient(90deg, #40FCB4 100%, #41F58C 100%, #40FCB4 100%, #41F58C 100%, #40FCB4 100%);
+  --success-gradient: linear-gradient(111.28deg, #071310 29.08%, rgba(3, 75, 43, 0.49) 121.35%);
+  --black-gradient: linear-gradient(103.16deg, #171717 17.54%, #131313 93.09%);
 }
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: black;
+  background-image: url('/assets/bg.svg');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-position: center;
 }
+
+.border-black-gradient {
+  border: 2px solid;
+  border-image-source: linear-gradient(180deg, #292929 34.12%, #02100D 38.21%, #02100E 62.31%, #292929 64.58%);
+}
+
+.coin-sell-clip-path {
+  clip-path: polygon(100% 0, 100% 100%, 59% 100%, 52% 82%, 45% 100%, 0 100%, 0 0);
+}
+
+.coin-buy-clip-path {
+  clip-path: polygon(100% 100%, 100% 0, 59% 0, 52% 18%, 45% 0, 0 0, 0 100%);
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes fillup {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes fadeInSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.animate-fadeInSlideUp {
+  animation: fadeInSlideUp 0.5s ease-out forwards;
+}
+
+.animate-fadeOut {
+  animation: fadeOut 0.5s ease-in forwards;
+}
+
+@keyframes fillup {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.blink-animation {
+  animation: blink 2s linear infinite;
+}
+
