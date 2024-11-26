@@ -16,7 +16,7 @@ const Navbar: React.FC<Props> = () => {
     useModal();
   const [searchValue, setSearchValue] = useState('');
   return (
-    <div className="px-5 py-4 w-full flex gap-6 md:gap-0 justify-between relative">
+    <div className="px-5 py-4 w-full flex gap-6 md:gap-0 justify-between">
       {/* logo section with nav links */}
       <div className="flex gap-[18px] w-fit h-fit">
         <Link
@@ -54,7 +54,7 @@ const Navbar: React.FC<Props> = () => {
       </div>
 
       {/* searchbar */}
-      <div className="w-full hidden md:flex justify-center items-center h-10 mx-2 absolute top-0 px-5 mt-4">
+      <div className="flex-1 md:flex hidden md:ml-[210px] items-center h-10 mx-2">
         <Searchbar
           onChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}
