@@ -25,7 +25,7 @@ const CoinSellSection: React.FC<Props> = ({
         <Image
           src="/assets/valid-amount-succes.svg"
           alt="valid"
-          className={`w-full h-full scale-[123%] absolute left-0 top-0 ${
+          className={`w-[95vw] md:w-full h-full scale-y-[160%] -z-10 scale-x-[110%] sm:scale-[123%] absolute left-0 top-0 ${
             amount > 0 ? 'blink-animation' : ''
           }`}
           width={20}
@@ -33,7 +33,7 @@ const CoinSellSection: React.FC<Props> = ({
         />
       )}
       <div
-        className={`w-full min-h-[167px] rounded-[15px] p-[2px] relative coin-sell-clip-path ${
+        className={`w-full min-h-[150px] md:min-h-[167px] rounded-[15px] p-[2px] relative coin-sell-clip-path ${
           amount > 0 && !inValidAmount
             ? 'bg-primary'
             : inValidAmount

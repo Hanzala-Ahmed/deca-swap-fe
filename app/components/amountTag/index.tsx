@@ -29,7 +29,7 @@ const AmountTag: React.FC<{
       </div>
 
       {/* amount string */}
-      <div className="flex gap-1">
+      <div className="flex gap-1 justify-end text-right">
         <p
           className={`${error ? 'text-primaryRed' : 'text-white72'}`}
         >

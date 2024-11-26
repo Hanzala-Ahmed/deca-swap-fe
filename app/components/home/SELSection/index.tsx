@@ -3,7 +3,7 @@
 import { SEL_SECTION_TABS } from '@/app/lib/constants';
 import { useToast } from '@/app/lib/context/toastProvider';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import Button from '../../button';
 import Tabs from '../../tabs';
 import DetailSection from '../detailSection';
@@ -24,8 +24,35 @@ const SELSection = () => {
 
   const { addToast } = useToast();
 
+  function isNumberValid(input: any) {
+    const isValid = /^[0-9]+$/.test(input);
+    return isValid;
+  }
+
+  // if (!isNumberValid(sellAmount)) {
+  //   setInvalidSellAmount(true);
+  // }
+
+  // if (!isNumberValid(buyAmount)) {
+  //   setInvalidBuyAmount(true);
+  // }
+
+  useEffect(() => {
+    if (!isNumberValid(sellAmount)) {
+      setInvalidSellAmount(true);
+    } else {
+      setInvalidSellAmount(false);
+    }
+
+    if (!isNumberValid(buyAmount)) {
+      setInvalidBuyAmount(true);
+    } else {
+      setInvalidBuyAmount(false);
+    }
+  }, [sellAmount, buyAmount]);
+
   return (
-    <div className="md:min-w-[500px] max-w-[500px] w-[100vw] p-2">
+    <div className="md:min-w-[500px] max-w-[500px] w-[95vw] p-2">
       <div className="w-full flex justify-between gap-2 mb-4">
         <Tabs
           tabs={SEL_SECTION_TABS}

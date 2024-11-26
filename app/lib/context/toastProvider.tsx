@@ -62,7 +62,7 @@ export const ToastProvider: React.FC<React.PropsWithChildren<{}>> = ({
         {toasts.map((toast, index) => (
           <div
             key={toast.id}
-            className={`bg-white005 w-screen max-w-[372px] text-white px-5 py-4 rounded-[15px] border border-white14 relative overflow-hidden
+            className={`bg-black opacity-95 w-[90vw] max-w-[372px] text-white px-2 md:px-5 py-4 rounded-[15px] border border-white14 relative overflow-hidden
                         ${
                           toast.exiting
                             ? 'animate-fadeOut'

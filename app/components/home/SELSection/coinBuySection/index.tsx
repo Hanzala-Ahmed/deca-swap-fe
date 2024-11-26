@@ -33,7 +33,7 @@ const CoinBuySection: React.FC<Props> = ({
         />
       )}
       <div
-        className={`w-full min-h-[167px] rounded-[15px] p-[2px] relative coin-buy-clip-path ${
+        className={`w-full min-h-[150px] md:min-h-[167px] rounded-[15px] p-[2px] relative coin-buy-clip-path ${
           amount > 0 && !inValidAmount
             ? 'bg-primary'
             : inValidAmount

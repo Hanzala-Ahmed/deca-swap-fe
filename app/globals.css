@@ -40,11 +40,24 @@ body {
 
 .coin-sell-clip-path {
   clip-path: polygon(100% 0, 100% 100%, 59% 100%, 52% 82%, 45% 100%, 0 100%, 0 0);
+  /* polygon(100% 0, 100% 100%, 65% 100%, 53% 82%, 42% 100%, 0 100%, 0 0) */
 }
 
 .coin-buy-clip-path {
   clip-path: polygon(100% 100%, 100% 0, 59% 0, 52% 18%, 45% 0, 0 0, 0 100%);
 }
+/* md screen */
+@media screen and (max-width: 380px) {
+  .coin-sell-clip-path {
+    clip-path: polygon(100% 0, 100% 100%, 65% 100%, 53% 82%, 42% 100%, 0 100%, 0 0) !important;
+  }
+
+  .coin-buy-clip-path {
+    /* clip-path: ; */
+    clip-path: polygon(100% 100%, 100% 0, 65% 0, 53% 18%, 42% 0, 0 0, 0 100%) !important;
+  }
+}
+
 
 @keyframes blink {
   0%, 100% {
