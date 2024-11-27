@@ -5,6 +5,7 @@ import Navbar from './components/navbar';
 
 export default function Home() {
   const router = useRouter();
+
   return router.push('/swaps');
   // return (
   //   <div className="">
