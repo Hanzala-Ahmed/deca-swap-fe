@@ -128,3 +128,12 @@ body {
   animation: blink 2s linear infinite;
 }
 
+/* scrollbar hidden */
+.scroll-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scroll-hidden {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}

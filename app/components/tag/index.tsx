@@ -1,25 +1,42 @@
 'use client';
+import { title } from 'process';
 import { useState } from 'react';
 
 type Props = {
   theme: 'primary' | 'secondary';
-  children: React.ReactNode;
+  children?: React.ReactNode;
+  value?: string;
+  setValue?: (selected: string) => void;
+  title?: string;
+  onClick?: () => void;
 };
 
-const Tag: React.FC<Props> = ({ theme, children }) => {
-  const [select, setSelected] = useState(false);
+const Tag: React.FC<Props> = ({
+  theme,
+  children,
+  value,
+  setValue,
+  title,
+  onClick,
+}) => {
   return (
     <span
       className={`cursor-pointer px-3 rounded-[10px] flex justify-center items-center text-[15px] h-[32px] border-[2px] border-primary ${
-        theme === 'primary' || select
+        theme === 'primary' ||
+        value?.toLocaleLowerCase() === title?.toLocaleLowerCase()
           ? 'bg-white12 text-white'
           : 'text-white72'
       }`}
       onClick={() => {
-        setSelected(!select);
+        if (title && value && setValue) {
+          setValue(title);
+        } else {
+          onClick && onClick();
+        }
       }}
     >
-      {children}
+      {children && children}
+      {title && title}
     </span>
   );
 };

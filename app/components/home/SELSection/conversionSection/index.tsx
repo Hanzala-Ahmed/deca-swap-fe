@@ -6,6 +6,7 @@ import { useState } from 'react';
 
 const ConversionSection: React.FC = ({}) => {
   const [amount, setAmount] = useState(0);
+  const [limitType, setLimitType] = useState('Market');
 
   return (
     <div className="w-full">
@@ -62,10 +63,30 @@ const ConversionSection: React.FC = ({}) => {
 
       {/* bottom section */}
       <div className="mt-2 w-full flex gap-[6px] items-center">
-        <Tag theme="primary" children="Market" />
-        <Tag theme="secondary" children="+1%" />
-        <Tag theme="secondary" children="+5%" />
-        <Tag theme="secondary" children="+10%" />
+        <Tag
+          theme="secondary"
+          title="Market"
+          value={limitType}
+          setValue={setLimitType}
+        />
+        <Tag
+          theme="secondary"
+          title="+1%"
+          value={limitType}
+          setValue={setLimitType}
+        />
+        <Tag
+          theme="secondary"
+          title="+5%"
+          value={limitType}
+          setValue={setLimitType}
+        />
+        <Tag
+          theme="secondary"
+          title="+10%"
+          value={limitType}
+          setValue={setLimitType}
+        />
       </div>
     </div>
   );
