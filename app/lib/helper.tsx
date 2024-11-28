@@ -33,3 +33,8 @@ export function formatCustomTime(date: any) {
     return formatString('min', 0);
   }
 }
+
+export function isNumberValid(input: any): boolean {
+  const isValid = /^[0-9]*\.?[0-9]+$/.test(input);
+  return isValid;
+}

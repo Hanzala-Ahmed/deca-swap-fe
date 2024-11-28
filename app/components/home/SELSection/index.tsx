@@ -2,16 +2,17 @@
 
 import { SEL_SECTION_TABS } from '@/app/lib/constants';
 import { useToast } from '@/app/lib/context/toastProvider';
+import { isNumberValid } from '@/app/lib/helper';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import Button from '../../button';
 import Tabs from '../../tabs';
+import NotifiSwapStream from '../../toasts/notifiSwapStream';
 import DetailSection from '../detailSection';
 import CoinBuySection from './coinBuySection';
 import CoinSellSection from './coinSellSection';
 import LimitSection from './limitSection';
 import SwapBox from './swapBox';
-import NotifiSwapStream from '../../toasts/notifiSwapStream';
 
 const SELSection = () => {
   const [activeTab, setActiveTab] = useState(SEL_SECTION_TABS[0]);
@@ -23,19 +24,6 @@ const SELSection = () => {
   const [isWalletConnected, setIsWalletConnected] = useState(false);
 
   const { addToast } = useToast();
-
-  function isNumberValid(input: any) {
-    const isValid = /^[0-9]+$/.test(input);
-    return isValid;
-  }
-
-  // if (!isNumberValid(sellAmount)) {
-  //   setInvalidSellAmount(true);
-  // }
-
-  // if (!isNumberValid(buyAmount)) {
-  //   setInvalidBuyAmount(true);
-  // }
 
   useEffect(() => {
     if (!isNumberValid(sellAmount)) {
