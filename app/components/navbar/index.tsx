@@ -7,10 +7,16 @@ import { useState } from 'react';
 import Button from '../button';
 import Searchbar from '../searchbar';
 import WalletButton from '../walletButton';
+import { useAppKit } from '@reown/appkit/react';
 
 type Props = {};
 
 const Navbar: React.FC<Props> = () => {
+  const { open } = useAppKit();
+  const handleConnectWallet = () => {
+    open(); // This opens the wallet connection modal
+    setWalletConnected(true); // Assuming the modal handles connection and you set state here
+  };
   const [walletConnected, setWalletConnected] = useState(false);
   const { showWalletDetailsModal, showGlobalStreamModal } =
     useModal();
@@ -86,7 +92,8 @@ const Navbar: React.FC<Props> = () => {
         {!walletConnected ? (
           <Button
             text="Connect"
-            onClick={() => setWalletConnected(true)}
+            // onClick={() => setWalletConnected(true)}
+            onClick={handleConnectWallet}
           />
         ) : (
           <WalletButton
