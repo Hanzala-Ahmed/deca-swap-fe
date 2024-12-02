@@ -1,26 +1,27 @@
 'use client';
 import { NAV_LINKS } from '@/app/lib/constants';
 import { useModal } from '@/app/lib/context/modalContext';
+import { useAppKit } from '@reown/appkit/react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { useAccount } from 'wagmi';
 import Button from '../button';
 import Searchbar from '../searchbar';
 import WalletButton from '../walletButton';
-import { useAppKit } from '@reown/appkit/react';
 
 type Props = {};
 
 const Navbar: React.FC<Props> = () => {
-  const { open } = useAppKit();
-  const handleConnectWallet = () => {
-    open(); // This opens the wallet connection modal
-    setWalletConnected(true); // Assuming the modal handles connection and you set state here
-  };
-  const [walletConnected, setWalletConnected] = useState(false);
+  const { isConnected, address } = useAccount();
   const { showWalletDetailsModal, showGlobalStreamModal } =
     useModal();
   const [searchValue, setSearchValue] = useState('');
+  const { open } = useAppKit();
+  const handleConnectWallet = () => {
+    open();
+  };
+
   return (
     <div className="px-5 py-4 w-full flex gap-6 md:gap-0 justify-between">
       {/* logo section with nav links */}
@@ -89,14 +90,13 @@ const Navbar: React.FC<Props> = () => {
         </div>
 
         {/* connect button */}
-        {!walletConnected ? (
-          <Button
-            text="Connect"
-            // onClick={() => setWalletConnected(true)}
-            onClick={handleConnectWallet}
-          />
+        {!isConnected ? (
+          <>
+            <Button text="Connect" onClick={handleConnectWallet} />
+          </>
         ) : (
           <WalletButton
+            address={address || ''}
             onClick={() => showWalletDetailsModal(true)}
           />
         )}

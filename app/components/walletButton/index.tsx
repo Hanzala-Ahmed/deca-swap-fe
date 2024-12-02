@@ -3,9 +3,10 @@ import Image from 'next/image';
 
 type Props = {
   onClick?: () => void;
+  address: string;
 };
 
-const WalletButton: React.FC<Props> = ({ onClick }) => {
+const WalletButton: React.FC<Props> = ({ onClick, address }) => {
   return (
     <div
       onClick={onClick}
@@ -27,7 +28,7 @@ const WalletButton: React.FC<Props> = ({ onClick }) => {
           height={20}
         />
       </div>
-      <p>{formatWalletAddress('GY68234nasmd234asfKT21')}</p>
+      <p>{formatWalletAddress(address)}</p>
     </div>
   );
 };

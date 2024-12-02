@@ -1,12 +1,16 @@
 'use client';
+
+import { useEffect } from 'react';
 import { useRouter } from 'next/navigation';
-import SELSection from './components/home/SELSection';
-import Navbar from './components/navbar';
 
 export default function Home() {
   const router = useRouter();
 
-  return router.push('/swaps');
+  useEffect(() => {
+    router.push('/swaps');
+  }, []);
+
+  return;
   // return (
   //   <div className="">
   //     <Navbar />

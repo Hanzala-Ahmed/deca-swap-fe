@@ -1,35 +1,32 @@
 'use client';
 
-import { arbitrum, mainnet } from '@reown/appkit/networks';
-import { createAppKit } from '@reown/appkit/react';
+import React, { ReactNode } from 'react';
+import { config, projectId, wagmiAdapter } from '@/config';
+import { createWeb3Modal } from '@web3modal/wagmi/react';
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query';
-import React, { type ReactNode } from 'react';
 import {
+  Config,
   cookieToInitialState,
+  State,
   WagmiProvider,
-  type Config,
 } from 'wagmi';
-import { projectId, wagmiAdapter } from '../config';
+import { createAppKit } from '@reown/appkit/react';
+import { mainnet, arbitrum } from 'viem/chains';
 
-// Set up queryClient
 const queryClient = new QueryClient();
 
-if (!projectId) {
-  throw new Error('Project ID is not defined');
-}
+if (!projectId) throw new Error('Project ID is not defined');
 
-// Set up metadata
 const metadata = {
   name: 'appkit-example',
   description: 'AppKit Example',
-  url: 'https://deca-swap-fe.vercel.app', // origin must match your domain & subdomain
+  url: 'https://deca-swap-fe.vercel.app/', // origin must match your domain & subdomain
   icons: ['https://avatars.githubusercontent.com/u/179229932'],
 };
 
-// Create the modal
 const modal = createAppKit({
   adapters: [wagmiAdapter],
   projectId,
@@ -37,12 +34,13 @@ const modal = createAppKit({
   defaultNetwork: mainnet,
   metadata: metadata,
   features: {
-    analytics: true, // Optional - defaults to your Cloud configuration
+    analytics: true,
+    email: false,
+    socials: false,
   },
-  themeMode: 'dark',
 });
 
-function WalletProvider({
+export default function Web3ModalProvider({
   children,
   cookies,
 }: {
@@ -53,7 +51,6 @@ function WalletProvider({
     wagmiAdapter.wagmiConfig as Config,
     cookies
   );
-
   return (
     <WagmiProvider
       config={wagmiAdapter.wagmiConfig as Config}
@@ -65,5 +62,3 @@ function WalletProvider({
     </WagmiProvider>
   );
 }
-
-export default WalletProvider;
