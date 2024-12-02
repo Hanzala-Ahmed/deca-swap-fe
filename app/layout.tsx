@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import localFont from 'next/font/local';
 import HomeLayout from './components/layouts';
 import './globals.css';
+import { cookies, headers } from 'next/headers';
+import WalletProvider from './lib/context/walletProvider';
 
 const afacadVariable = localFont({
   src: './fonts/Afacad-Medium.ttf',
@@ -14,15 +16,20 @@ export const metadata: Metadata = {
   description: '',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cookies = (await headers()).get('cookie');
   return (
     <html lang="en">
       <body className={`${afacadVariable.className} antialiased`}>
-        <HomeLayout>{children}</HomeLayout>
+        <HomeLayout>
+          <WalletProvider cookies={cookies}>
+            {children}
+          </WalletProvider>
+        </HomeLayout>
       </body>
     </html>
   );
