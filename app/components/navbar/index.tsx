@@ -9,11 +9,16 @@ import { useAccount } from 'wagmi';
 import Button from '../button';
 import Searchbar from '../searchbar';
 import WalletButton from '../walletButton';
+import { usePathname } from 'next/navigation';
 
-type Props = {};
+type Props = {
+  isBack?: boolean;
+  onBack?: () => void;
+};
 
-const Navbar: React.FC<Props> = () => {
+const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
   const { isConnected, address } = useAccount();
+  const pathname = usePathname();
   const { showWalletDetailsModal, showGlobalStreamModal } =
     useModal();
   const [searchValue, setSearchValue] = useState('');
@@ -40,28 +45,56 @@ const Navbar: React.FC<Props> = () => {
         </Link>
 
         {/* navlinks */}
-        <div className="w-fit h-10 border-[2px] border-primary py-[10px] px-[15px] rounded-[12px] hidden md:flex gap-[18px]">
-          {NAV_LINKS.map((link) => (
-            <a
-              key={link.title}
-              href={link.href}
-              className="flex gap-[6px] items-center"
-            >
-              <Image
-                src={link.icon}
-                alt={link.title}
-                className="w-fit h-fit"
-                width={20}
-                height={20}
-              />
-              <span>{link.title}</span>
-            </a>
-          ))}
-        </div>
+        {isBack ? (
+          <div
+            className="flex gap-1 text-white72 cursor-pointer items-center"
+            onClick={onBack}
+          >
+            <Image
+              src={'/icons/right-arrow.svg'}
+              alt="back"
+              className="w-2.5 rotate-180"
+              width={1000}
+              height={1000}
+            />
+            <p>Back</p>
+          </div>
+        ) : (
+          <div className="w-fit h-10 border-[2px] border-primary px-[6px] py-[3px] rounded-[12px] hidden md:flex gap-[6px]">
+            {NAV_LINKS.map((link) => (
+              <a
+                key={link.title}
+                href={link.href}
+                className={`flex gap-[6px] items-center py-[10px] px-[9px] rounded-[8px] ${
+                  pathname === link.href
+                    ? ' bg-primaryGradient text-black'
+                    : ''
+                }`}
+              >
+                <Image
+                  src={`${
+                    pathname === link.href
+                      ? `/icons/${link.href}-black.svg`
+                      : link.icon
+                  }`}
+                  alt={link.title}
+                  className="w-fit h-fit"
+                  width={20}
+                  height={20}
+                />
+                <span>{link.title}</span>
+              </a>
+            ))}
+          </div>
+        )}
       </div>
 
       {/* searchbar */}
-      <div className="flex-1 md:flex hidden md:ml-[210px] items-center h-10 mx-2">
+      <div
+        className={`${
+          isBack ? 'w-full max-w-[340px]' : 'flex-1 md:ml-[210px]'
+        } md:flex hidden items-center h-10 mx-2`}
+      >
         <Searchbar
           onChange={(e) => setSearchValue(e.target.value)}
           value={searchValue}

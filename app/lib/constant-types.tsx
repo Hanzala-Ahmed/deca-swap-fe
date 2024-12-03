@@ -4,6 +4,12 @@ type NAV_LINKS = {
   icon: string;
 };
 
+type BREADCRUMBS_LINKS = {
+  title: string;
+  href: string;
+  active?: boolean;
+};
+
 type TABS = {
   title: string;
 };
@@ -26,4 +32,12 @@ type STREAM = {
 type STREAMS = {
   sell: STREAM;
   buy: STREAM;
+};
+
+type LIQUIDITY_STATS_DATA = {
+  title: string;
+  value: string;
+  status: 'increase' | 'decrease';
+  statusAmount: string;
+  graphData: any[];
 };

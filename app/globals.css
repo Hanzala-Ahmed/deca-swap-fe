@@ -21,6 +21,7 @@
   --primary-gradient: linear-gradient(90deg, #40FCB4 100%, #41F58C 100%, #40FCB4 100%, #41F58C 100%, #40FCB4 100%);
   --success-gradient: linear-gradient(111.28deg, #071310 29.08%, rgba(3, 75, 43, 0.49) 121.35%);
   --black-gradient: linear-gradient(103.16deg, #171717 17.54%, #131313 93.09%);
+  --gradient-text: linear-gradient(271.73deg, #33F498 0%, #23DAE6 100%);
 }
 
 body {

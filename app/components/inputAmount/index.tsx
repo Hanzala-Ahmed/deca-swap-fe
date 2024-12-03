@@ -3,7 +3,7 @@ import { NumericFormat } from 'react-number-format';
 
 interface InputAmountProps {
   amount: number;
-  setAmount: (value: number) => void;
+  setAmount?: (value: number) => void;
   disable?: boolean;
   textAlignRight?: boolean;
   inValidAmount?: boolean;
@@ -19,7 +19,7 @@ const InputAmount: React.FC<InputAmountProps> = ({
   // Handler to update the amount
   const handleValueChange = (values: any) => {
     const { floatValue } = values;
-    setAmount(floatValue || 0);
+    if (setAmount) setAmount(floatValue || 0);
   };
 
   return (

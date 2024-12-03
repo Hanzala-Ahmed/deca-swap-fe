@@ -25,11 +25,13 @@ export default {
         white52: 'var(--white52)',
         ongoing: 'var(--ongoing)',
         scheduled: 'var(--scheduled)',
+        gradientText: 'var(--gradient-text)',
       },
       backgroundImage: {
         primaryGradient: 'var(--primary-gradient)',
         blackGradient: 'var(--black-gradient)',
         successGradient: 'var(--success-gradient)',
+        gradientText: 'var(--gradient-text)',
       },
       borderColor: {
         primary: 'var(--border-primary)',

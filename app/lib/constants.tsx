@@ -128,3 +128,107 @@ export const SEL_SECTION_TABS: TABS[] = [
     title: 'Limit',
   },
 ];
+
+export const OVERALL_SECTION_TABS: TABS[] = [
+  {
+    title: 'Volume',
+  },
+  {
+    title: 'TVL',
+  },
+  {
+    title: 'Rewards',
+  },
+];
+
+export const POOL_TOKEN_TABS: TABS[] = [
+  {
+    title: 'Volume',
+  },
+  {
+    title: 'Liquidity',
+  },
+];
+
+export const DAYS: TABS[] = [
+  {
+    title: '1D',
+  },
+  {
+    title: '1W',
+  },
+  {
+    title: '1M',
+  },
+  {
+    title: '1Y',
+  },
+  {
+    title: 'ALL',
+  },
+];
+
+export const EXPLORE_TABS: TABS[] = [
+  {
+    title: 'All',
+  },
+  {
+    title: 'My Pools',
+  },
+];
+
+export const ACTIVITY_TABS: TABS[] = [
+  {
+    title: 'All',
+  },
+  {
+    title: 'My Activity',
+  },
+];
+
+export const LIQUIDITY_STATS_TABS: TABS[] = [
+  {
+    title: 'Pool Stats',
+  },
+  {
+    title: 'My Stats',
+  },
+];
+
+export const LIQUIDITY_STATS_DATA: LIQUIDITY_STATS_DATA[] = [
+  {
+    title: 'Liquidity',
+    value: '$373.75M',
+    status: 'decrease',
+    statusAmount: '$22.39 (2.39%)',
+    graphData: [50, 45, 40, 38, 42, 45, 48],
+  },
+  {
+    title: 'TVL',
+    value: '$373.75M',
+    status: 'increase',
+    statusAmount: '$22.39 (2.39%)',
+    graphData: [50, 45, 40, 38, 42, 45, 48],
+  },
+  {
+    title: 'APR for LPs',
+    value: '$373.75M',
+    status: 'decrease',
+    statusAmount: '$22.39 (2.39%)',
+    graphData: [50, 45, 40, 38, 42, 45, 48],
+  },
+  {
+    title: 'Fees (24h)',
+    value: '$373.75M',
+    status: 'increase',
+    statusAmount: '$22.39 (2.39%)',
+    graphData: [50, 45, 40, 38, 42, 45, 48],
+  },
+  {
+    title: 'CLAIMABLE REWARDS',
+    value: '$373.75M',
+    status: 'increase',
+    statusAmount: '$22.39 (2.39%)',
+    graphData: [50, 45, 40, 38, 42, 45, 48],
+  },
+];
