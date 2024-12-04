@@ -32,7 +32,10 @@ export default function Pools() {
           </div>
 
           <div className="mt-[76px]">
-            <Explore onAddLiquidity={() => setIsLiquidityTab(true)} />
+            <Explore
+              // onAddLiquidity={() => setIsLiquidityTab(true)}
+              onAddLiquidity={() => {}}
+            />
           </div>
         </div>
       )}

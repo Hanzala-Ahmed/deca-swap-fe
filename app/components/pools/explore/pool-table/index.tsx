@@ -98,10 +98,11 @@ const PoolTable: React.FC<Props> = ({ onAddLiquidity }) => {
                 </td>
                 <td className="px-4 py-4 text-right">0</td>
                 <td className="px-4 py-4">
-                  <Link
+                  {/* <Link
                     href={`/pools/${'0x2a4941dsfdgdfngkd74642f'}`}
                     className="w-full flex justify-end"
-                  >
+                  > */}
+                  <div className="w-full flex justify-end">
                     <Image
                       src={'/icons/right-arrow.svg'}
                       alt="arrow"
@@ -109,7 +110,8 @@ const PoolTable: React.FC<Props> = ({ onAddLiquidity }) => {
                       width={1000}
                       height={1000}
                     />
-                  </Link>
+                  </div>
+                  {/* </Link> */}
                 </td>
               </tr>
             ))}
