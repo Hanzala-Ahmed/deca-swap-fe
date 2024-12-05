@@ -10,8 +10,8 @@ const PoolTable: React.FC<Props> = ({ onAddLiquidity }) => {
   return (
     <div className="flex flex-col gap-4 w-full">
       <div className="relative overflow-x-auto mt-10">
-        <table className="w-full text-left rtl:text-right text-gray-500 text-[16px]">
-          <thead className="text-white72 uppercase bg-gray-50 border-b border-primary">
+        <table className="w-full bg-transparent text-left rtl:text-right text-gray-500 text-[16px]">
+          <thead className="text-white72 uppercase bg-transaprent border-b border-primary">
             <tr>
               <th
                 scope="col"
@@ -98,11 +98,10 @@ const PoolTable: React.FC<Props> = ({ onAddLiquidity }) => {
                 </td>
                 <td className="px-4 py-4 text-right">0</td>
                 <td className="px-4 py-4">
-                  {/* <Link
+                  <Link
                     href={`/pools/${'0x2a4941dsfdgdfngkd74642f'}`}
                     className="w-full flex justify-end"
-                  > */}
-                  <div className="w-full flex justify-end">
+                  >
                     <Image
                       src={'/icons/right-arrow.svg'}
                       alt="arrow"
@@ -110,8 +109,7 @@ const PoolTable: React.FC<Props> = ({ onAddLiquidity }) => {
                       width={1000}
                       height={1000}
                     />
-                  </div>
-                  {/* </Link> */}
+                  </Link>
                 </td>
               </tr>
             ))}

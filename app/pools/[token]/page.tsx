@@ -45,10 +45,8 @@ export default function Token() {
             </div>
             <div className="md:col-span-2">
               <LiquidityStats
-                // onAddLiquidity={() => setIsLiquidityTab(true)}
-                // onWithdraw={() => setIsWithdrawTab(true)}
-                onAddLiquidity={() => {}}
-                onWithdraw={() => {}}
+                onAddLiquidity={() => setIsLiquidityTab(true)}
+                onWithdraw={() => setIsWithdrawTab(true)}
               />
             </div>
           </div>

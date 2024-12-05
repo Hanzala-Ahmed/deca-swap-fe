@@ -1,8 +1,5 @@
 import InputAmount from '@/app/components/inputAmount';
-import { TOKENS } from '@/app/lib/constants';
-import { useModal } from '@/app/lib/context/modalContext';
 import Image from 'next/image';
-import { useState } from 'react';
 
 interface InputAmountProps {
   amount: number;

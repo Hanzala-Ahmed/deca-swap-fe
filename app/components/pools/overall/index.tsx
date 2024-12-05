@@ -84,6 +84,8 @@ const PoolOverall: React.FC<Props> = () => {
 
 // Volume Graph (Bar Chart)
 const VolumeGraph = () => {
+  const chartRef = useRef<any>(null);
+
   const data = {
     labels: [
       '00:05',
@@ -94,15 +96,15 @@ const VolumeGraph = () => {
       '00:40',
       '00:50',
       '00:55',
-      '00:55',
-      '00:55',
+      '01:05',
     ],
     datasets: [
       {
-        data: [5, 15, 10, 30, 18, 50, 10, 8, 2, 3],
-        backgroundColor: 'rgba(64, 251, 177, 1)', // Light green color
+        label: 'Volume',
+        data: [5, 15, 10, 30, 18, 50, 10, 8, 2],
+        backgroundColor: 'rgba(64, 251, 177, 1)',
         borderRadius: 7,
-        borderSkipped: false, // Round all sides
+        borderSkipped: false,
       },
     ],
   };
@@ -110,7 +112,49 @@ const VolumeGraph = () => {
   const options = {
     responsive: true,
     plugins: {
-      legend: { display: false },
+      legend: {
+        display: false,
+      },
+      tooltip: {
+        enabled: true,
+        backgroundColor: '#000',
+        titleColor: '#fff',
+        bodyColor: '#fff',
+        displayColors: false,
+        borderColor: '#555',
+        borderWidth: 1,
+        callbacks: {
+          label: function (tooltipItem: any) {
+            const value = tooltipItem.raw;
+            return [
+              `Volume: $${value.toFixed(2)}M`,
+              `Count: ${Math.floor(value * 1000)}`, // Example count calculation
+            ];
+          },
+        },
+      },
+      customDottedLine: {
+        id: 'customDottedLine',
+        afterDraw: (chart: any) => {
+          if (chart.tooltip._active && chart.tooltip._active.length) {
+            const ctx = chart.ctx;
+            const activePoint = chart.tooltip._active[0];
+            const x = activePoint.element.x;
+            const topY = chart.scales.y.top;
+            const bottomY = chart.scales.y.bottom;
+
+            ctx.save();
+            ctx.beginPath();
+            ctx.setLineDash([5, 5]); // Dotted line
+            ctx.moveTo(x, topY);
+            ctx.lineTo(x, bottomY);
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = '#40F798'; // Line color
+            ctx.stroke();
+            ctx.restore();
+          }
+        },
+      },
     },
     scales: {
       x: {
@@ -120,14 +164,22 @@ const VolumeGraph = () => {
           font: { size: 12 },
         },
       },
-      y: { display: false },
+      y: {
+        grid: { display: false },
+        ticks: { display: false },
+      },
     },
-    barPercentage: 1, // Adjust bar width
+    barPercentage: 1,
   };
 
   return (
     <div style={{ width: '100%', height: '300px' }}>
-      <Bar data={data} options={options} />
+      <Bar
+        ref={chartRef}
+        data={data}
+        options={options}
+        plugins={[options.plugins.customDottedLine]}
+      />
     </div>
   );
 };

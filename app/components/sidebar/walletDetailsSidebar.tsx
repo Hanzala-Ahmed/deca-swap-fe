@@ -2,17 +2,17 @@ import { TOKENS, WALLET_TABS } from '@/app/lib/constants';
 import { formatWalletAddress } from '@/app/lib/helper';
 import Image from 'next/image';
 import { useState } from 'react';
-import Modal from '.';
+import Sidebar from '.';
 import StreamDetails from '../streamDetails';
 import SwapStream from '../swapStream';
 import Tabs from '../tabs';
 
-type WalletDetailsModalProps = {
+type WalletDetailsSidebarProps = {
   isOpen: boolean;
   onClose: () => void;
 };
 
-const WalletDetailsModal: React.FC<WalletDetailsModalProps> = ({
+const WalletDetailsSidebar: React.FC<WalletDetailsSidebarProps> = ({
   isOpen,
   onClose,
 }) => {
@@ -21,7 +21,7 @@ const WalletDetailsModal: React.FC<WalletDetailsModalProps> = ({
     useState(false);
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose}>
+    <Sidebar isOpen={isOpen} onClose={onClose}>
       {/* close icon */}
       <div
         onClick={onClose}
@@ -234,8 +234,8 @@ const WalletDetailsModal: React.FC<WalletDetailsModalProps> = ({
           </>
         )}
       </div>
-    </Modal>
+    </Sidebar>
   );
 };
 
-export default WalletDetailsModal;
+export default WalletDetailsSidebar;

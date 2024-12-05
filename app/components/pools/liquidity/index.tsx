@@ -28,7 +28,6 @@ const Liquidity: React.FC<Props> = () => {
           activeIndex === 3 ? '#40F798' : 'rgba(64, 251, 177, 0.4)',
           activeIndex === 4 ? '#40F798' : 'rgba(64, 251, 177, 0.3)', // Highlight on active
         ],
-        hoverOffset: 8, // Highlight effect
         borderWidth: [
           activeIndex === 0 ? 8 : 0,
           activeIndex === 1 ? 1 : 0,
@@ -79,7 +78,7 @@ const Liquidity: React.FC<Props> = () => {
           style={{ width: '232px', height: '232px' }}
         >
           <Doughnut data={data} options={options} />
-          <div className="absolute top-[50%] left-[50%] text-white72 translate-x-[-50%] translate-y-[-50%] text-center">
+          <div className="absolute top-[50%] left-[50%] -z-10 text-white72 translate-x-[-50%] translate-y-[-50%] text-center">
             <p className="text-[14px]">Global Pool</p>
             <h2 className="text-[21px] font-bold">$373.75M</h2>
           </div>

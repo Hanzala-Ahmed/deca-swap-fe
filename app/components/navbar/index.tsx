@@ -1,15 +1,15 @@
 'use client';
 import { NAV_LINKS } from '@/app/lib/constants';
-import { useModal } from '@/app/lib/context/modalContext';
+import { useSidebar } from '@/app/lib/context/sidebarContext';
 import { useAppKit } from '@reown/appkit/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
 import { useAccount } from 'wagmi';
 import Button from '../button';
 import Searchbar from '../searchbar';
 import WalletButton from '../walletButton';
-import { usePathname } from 'next/navigation';
 
 type Props = {
   isBack?: boolean;
@@ -19,8 +19,8 @@ type Props = {
 const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
   const { isConnected, address } = useAccount();
   const pathname = usePathname();
-  const { showWalletDetailsModal, showGlobalStreamModal } =
-    useModal();
+  const { showWalletDetailsSidebar, showGlobalStreamSidebar } =
+    useSidebar();
   const [searchValue, setSearchValue] = useState('');
   const { open } = useAppKit();
   const handleConnectWallet = () => {
@@ -106,7 +106,7 @@ const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
       <div className="flex gap-[10px]">
         <div
           onClick={() => {
-            showGlobalStreamModal(true);
+            showGlobalStreamSidebar(true);
           }}
           className="relative cursor-pointer w-12 h-10 rounded-[12px] flex items-center justify-center border-primary border-[2px]"
         >
@@ -130,7 +130,7 @@ const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
         ) : (
           <WalletButton
             address={address || ''}
-            onClick={() => showWalletDetailsModal(true)}
+            onClick={() => showWalletDetailsSidebar(true)}
           />
         )}
       </div>
