@@ -46,7 +46,7 @@ const Tabs: React.FC<Props> = ({
   };
 
   return (
-    <div className="relative p-[2px] border-[2px] border-primary flex rounded-[10px]">
+    <div className="relative p-[2px] border-[2px] border-primary flex rounded-[10px] w-full">
       <div
         className={`absolute top-0 left-0 h-full ${
           theme === 'secondary'
@@ -69,7 +69,7 @@ const Tabs: React.FC<Props> = ({
                 ? 'text-black'
                 : 'text-white'
               : 'text-gray-500'
-          } h-[24px] min-w-fit px-[15px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center ${
+          } h-[24px] min-w-fit w-full px-[15px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center ${
             tabHeight ? `h-[${tabHeight}px]` : 'h-[24px]'
           } transition-colors duration-300`}
         >
