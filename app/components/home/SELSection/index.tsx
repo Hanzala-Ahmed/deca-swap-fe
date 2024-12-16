@@ -22,6 +22,7 @@ const SELSection = () => {
   const [invaliSelldAmount, setInvalidSellAmount] = useState(false);
   const [invalidBuyAmount, setInvalidBuyAmount] = useState(false);
   const [isWalletConnected, setIsWalletConnected] = useState(false);
+  const [swap, setSwap] = useState(false);
 
   const { addToast } = useToast();
 
@@ -59,33 +60,64 @@ const SELSection = () => {
         />
       )}
       <div className="w-full mt-4 flex flex-col relative gap-[23px]">
-        <CoinSellSection
-          amount={sellAmount}
-          setAmount={(val: any) => {
-            setSellAmount(val);
-          }}
-          active={isSellAmountActive}
-          inValidAmount={invaliSelldAmount}
-          setActive={setIsSellAmountActive}
-        />
-        <div className="absolute items-center flex justify-center rounded-[6px] overflow-hidden right-[calc(50%_-_42px)] top-[calc(50%_-_2rem)] rotate-45">
+        {swap ? (
+          <CoinBuySection
+            amount={buyAmount}
+            setAmount={(val: any) => setBuyAmount(val)}
+            // active={isSellAmountActive}
+            inValidAmount={invalidBuyAmount}
+            // setActive={setIsSellAmountActive}
+            swap={swap}
+          />
+        ) : (
+          <CoinSellSection
+            amount={sellAmount}
+            setAmount={(val: any) => {
+              setSellAmount(val);
+            }}
+            // active={isSellAmountActive}
+            inValidAmount={invaliSelldAmount}
+            // setActive={setIsSellAmountActive}
+            swap={swap}
+          />
+        )}
+        <div
+          onClick={() => setSwap(!swap)}
+          className="absolute items-center flex justify-center cursor-pointer rounded-[6px] overflow-hidden right-[calc(50%_-_42px)] top-[calc(50%_-_2rem)] rotate-45"
+        >
           <SwapBox active={sellAmount > 0 || buyAmount > 0} />
         </div>
-        <CoinBuySection
-          amount={buyAmount}
-          setAmount={(val: any) => setBuyAmount(val)}
-          active={isSellAmountActive}
-          inValidAmount={invalidBuyAmount}
-          setActive={setIsSellAmountActive}
-        />
+        {swap ? (
+          <CoinSellSection
+            amount={sellAmount}
+            setAmount={(val: any) => {
+              setSellAmount(val);
+            }}
+            // active={isSellAmountActive}
+            inValidAmount={invaliSelldAmount}
+            // setActive={setIsSellAmountActive}
+            swap={swap}
+          />
+        ) : (
+          <CoinBuySection
+            amount={buyAmount}
+            setAmount={(val: any) => setBuyAmount(val)}
+            // active={isSellAmountActive}
+            inValidAmount={invalidBuyAmount}
+            // setActive={setIsSellAmountActive}
+            swap={swap}
+          />
+        )}
       </div>
 
       {/* Detail Section */}
-      <DetailSection
-        sellAmount={`${sellAmount}`}
-        buyAmount={`${buyAmount}`}
-        inValidAmount={invaliSelldAmount || invalidBuyAmount}
-      />
+      {buyAmount > 0 && sellAmount > 0 && (
+        <DetailSection
+          sellAmount={`${swap ? buyAmount : sellAmount}`}
+          buyAmount={`${swap ? sellAmount : buyAmount}`}
+          inValidAmount={invaliSelldAmount || invalidBuyAmount}
+        />
+      )}
 
       <div className="w-full my-[30px]">
         {isWalletConnected ? (
@@ -110,11 +142,18 @@ const SELSection = () => {
 
 const SettingButton = () => {
   return (
-    <div className="w-8 h-8 bg-white bg-opacity-[12%] rounded-[12px] flex items-center justify-center cursor-pointer">
+    <div className="group w-8 h-8 bg-white hover:bg-tabsGradient bg-opacity-[12%] rounded-[12px] flex items-center justify-center cursor-pointer">
       <Image
         src="/icons/settings.svg"
         alt="settings"
-        className="w-fit h-fit"
+        className="w-fit h-fit block group-hover:hidden"
+        width={40}
+        height={40}
+      />
+      <Image
+        src="/icons/settings-primary.svg"
+        alt="settings"
+        className="w-fit h-fit hidden group-hover:block"
         width={40}
         height={40}
       />

@@ -39,42 +39,47 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
         {/* select token */}
         {selectedToken ? (
           <div
-            className={`min-w-[165px] w-fit h-12 bg-blackGradient border-[2px] p-2 gap-[14px] flex rounded-[25px] items-center justify-between cursor-pointer uppercase font-bold ${
+            className={`min-w-[165px] w-fit h-12 rounded-[25px] p-[2px] ${
               amount > 0 && !inValidAmount
-                ? 'border-success'
-                : 'border-primary'
+                ? ' bg-borderGradient'
+                : 'bg-[#373D3F]'
             }`}
-            onClick={() => setSelectedToken('')}
           >
             <div
-              key={findedToken?.name}
-              className="flex items-center w-fit h-fit"
+              className={`min-w-[165px] overflow-hidden w-fit h-full bg-[#0D0D0D] p-2 gap-[14px] flex rounded-[25px] items-center justify-between cursor-pointer uppercase font-bold
+                `}
+              onClick={() => setSelectedToken('')}
             >
-              <div className="mr-2.5 relative">
-                <Image
-                  src={findedToken?.icon || ''}
-                  alt={findedToken?.name || ''}
-                  className="w-[85%]"
-                  width={1000}
-                  height={1000}
-                />
-                <Image
-                  src="/icons/token.svg"
-                  alt="close"
-                  className="w-fit h-fit absolute bottom-0 right-[5px]"
-                  width={20}
-                  height={20}
-                />
+              <div
+                key={findedToken?.name}
+                className="flex items-center w-fit h-fit"
+              >
+                <div className="mr-2.5 relative">
+                  <Image
+                    src={findedToken?.icon || ''}
+                    alt={findedToken?.name || ''}
+                    className="w-[85%]"
+                    width={1000}
+                    height={1000}
+                  />
+                  <Image
+                    src="/icons/token.svg"
+                    alt="close"
+                    className="w-fit h-fit absolute bottom-0 right-[5px]"
+                    width={20}
+                    height={20}
+                  />
+                </div>
+                <p>{findedToken?.symbol || ''}</p>
               </div>
-              <p>{findedToken?.symbol || ''}</p>
+              <Image
+                src="/icons/arrow-down-white.svg"
+                alt="close"
+                className="w-fit h-fit"
+                width={20}
+                height={20}
+              />
             </div>
-            <Image
-              src="/icons/arrow-down-white.svg"
-              alt="close"
-              className="w-fit h-fit"
-              width={20}
-              height={20}
-            />
           </div>
         ) : (
           <div

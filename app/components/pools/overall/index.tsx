@@ -117,7 +117,7 @@ const VolumeGraph = () => {
       },
       tooltip: {
         enabled: true,
-        backgroundColor: '#000',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         titleColor: '#fff',
         bodyColor: '#fff',
         displayColors: false,
@@ -268,7 +268,7 @@ const TVLGraph = () => {
       },
       tooltip: {
         enabled: true, // Show tooltip on hover
-        backgroundColor: '#000',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         titleColor: '#fff',
         bodyColor: '#fff',
         borderWidth: 1,
@@ -365,7 +365,7 @@ const RewardsGraph = () => {
       legend: { display: false }, // Hide legend
       tooltip: {
         enabled: true, // Show tooltip on hover
-        backgroundColor: '#000',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
         titleColor: '#fff',
         bodyColor: '#fff',
         borderWidth: 1,

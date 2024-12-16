@@ -36,6 +36,7 @@ const Liquidity: React.FC<Props> = () => {
           activeIndex === 4 ? 1 : 0,
         ],
         borderColor: '#0D382909',
+        hoverOffset: 8,
       },
     ],
   };
@@ -78,7 +79,7 @@ const Liquidity: React.FC<Props> = () => {
           style={{ width: '232px', height: '232px' }}
         >
           <Doughnut data={data} options={options} />
-          <div className="absolute top-[50%] left-[50%] -z-10 text-white72 translate-x-[-50%] translate-y-[-50%] text-center">
+          <div className="absolute top-[50%] left-[50%] -z-10 translate-x-[-50%] translate-y-[-50%] text-center">
             <p className="text-[14px]">Global Pool</p>
             <h2 className="text-[21px] font-bold">$373.75M</h2>
           </div>
@@ -88,7 +89,7 @@ const Liquidity: React.FC<Props> = () => {
         {data.labels.map((label, index) => (
           <div
             key={index}
-            className={`flex items-center gap-2 cursor-pointer ${
+            className={`group flex items-center gap-2 cursor-pointer ${
               activeIndex === index ? 'text-white' : ''
             }`}
             onClick={() =>
@@ -111,7 +112,7 @@ const Liquidity: React.FC<Props> = () => {
             <p
               className={`${
                 activeIndex !== index && 'text-white52'
-              } text-[14px]`}
+              } text-[14px] group-hover:text-white`}
             >
               {label} <span>($20.2M, 20%)</span>
             </p>

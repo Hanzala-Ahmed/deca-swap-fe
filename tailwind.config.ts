@@ -32,12 +32,15 @@ export default {
         blackGradient: 'var(--black-gradient)',
         successGradient: 'var(--success-gradient)',
         gradientText: 'var(--gradient-text)',
+        tabsGradient: 'var(--tabs-gradient)',
+        borderGradient: 'var(--border-gradient)',
       },
       borderColor: {
         primary: 'var(--border-primary)',
         success: 'var(--primary)',
         error: 'var(--primary-red)',
         borderBottom: 'var(--border-bottom)',
+        gradient: 'var(--border-gradient)',
       },
       textColor: {
         gray: 'var(--text-gray)',

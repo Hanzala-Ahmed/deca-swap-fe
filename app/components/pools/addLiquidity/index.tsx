@@ -71,11 +71,18 @@ const AddLiquidity = () => {
 
 const SettingButton = () => {
   return (
-    <div className="w-8 h-8 bg-white bg-opacity-[12%] rounded-[12px] flex items-center justify-center cursor-pointer">
+    <div className="group w-8 h-8 bg-white hover:bg-tabsGradient bg-opacity-[12%] rounded-[12px] flex items-center justify-center cursor-pointer">
       <Image
         src="/icons/settings.svg"
         alt="settings"
-        className="w-fit h-fit"
+        className="w-fit h-fit block group-hover:hidden"
+        width={40}
+        height={40}
+      />
+      <Image
+        src="/icons/settings-primary.svg"
+        alt="settings"
+        className="w-fit h-fit hidden group-hover:block"
         width={40}
         height={40}
       />

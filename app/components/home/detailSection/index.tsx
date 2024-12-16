@@ -18,7 +18,7 @@ const DetailSection: React.FC<Props> = ({
   const toggleDetails = () => setShowDetails(!showDetails);
 
   return (
-    <div className="w-full p-5 border-[2px] border-white12 mt-[26px] rounded-[15px]">
+    <div className="w-full p-5 border-[2px] border-white12 bg-[#0D0D0D] mt-[26px] rounded-[15px]">
       <div
         className={`w-full flex justify-between gap-1 duration-300 ease-in-out cursor-pointer`}
         onClick={toggleDetails}
@@ -37,7 +37,7 @@ const DetailSection: React.FC<Props> = ({
               height={20}
             />
           )}
-          <p>1 ETH</p>
+          <p>{sellAmount} ETH</p>
           {inValidAmount ? (
             <Image
               src="/icons/red-right-arrow.svg"
@@ -55,7 +55,7 @@ const DetailSection: React.FC<Props> = ({
               height={20}
             />
           )}
-          <p>3,300 USDC (Est)</p>
+          <p>{buyAmount} USDC (Est)</p>
         </div>
         <div className="flex gap-2.5 items-center">
           <div className="flex gap-1.5">

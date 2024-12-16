@@ -41,7 +41,9 @@ const SelectTokenSidebar: React.FC<SelectTokenSidebarProps> = ({
           />
         </div>
 
-        {searchValue && <p className="text-[20px]">Results</p>}
+        {searchValue && (
+          <p className="text-[20px] text-white72">Results</p>
+        )}
         {debouncedSearchValue.length > 0 ? (
           <>
             <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[400px] overflow-y-auto">
@@ -89,9 +91,11 @@ const SelectTokenSidebar: React.FC<SelectTokenSidebarProps> = ({
 
         {!(searchValue.length > 0) && (
           <>
-            <p className="text-[20px]">Recent/ Popular</p>
+            <p className="text-[20px] text-white72">
+              Recent/ Popular
+            </p>
 
-            <div className="flex gap-1 my-[13px] overflow-x-auto">
+            <div className="flex gap-1 my-[13px] overflow-x-auto scroll-hidden">
               {TOKENS.map((token, ind) => (
                 <div
                   key={ind}
@@ -119,7 +123,7 @@ const SelectTokenSidebar: React.FC<SelectTokenSidebarProps> = ({
               ))}
             </div>
 
-            <p className="text-[20px]">Tokens</p>
+            <p className="text-[20px] text-white72">Tokens</p>
 
             <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[400px] overflow-y-auto scroll-hidden pb-5">
               {TOKENS.map((token, ind) => (

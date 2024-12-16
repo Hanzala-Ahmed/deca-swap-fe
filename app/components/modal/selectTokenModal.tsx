@@ -41,7 +41,9 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
           />
         </div>
 
-        {searchValue && <p className="text-[20px]">Results</p>}
+        {searchValue && (
+          <p className="text-[20px] text-white72">Results</p>
+        )}
         {debouncedSearchValue.length > 0 ? (
           <>
             <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[400px] overflow-y-auto">
@@ -89,9 +91,11 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
 
         {!(searchValue.length > 0) && (
           <>
-            <p className="text-[20px]">Recent/ Popular</p>
+            <p className="text-[20px] text-white72">
+              Recent/ Popular
+            </p>
 
-            <div className="flex gap-1 my-[13px] overflow-x-auto">
+            <div className="flex gap-1 my-[13px] overflow-x-auto scroll-hidden">
               {TOKENS.map((token, ind) => (
                 <div
                   key={ind}
@@ -119,14 +123,14 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
               ))}
             </div>
 
-            <p className="text-[20px]">Tokens</p>
+            <p className="text-[20px] text-white72">Tokens</p>
 
             <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[400px] overflow-y-auto scroll-hidden pb-5">
               {TOKENS.map((token, ind) => (
                 <div
                   key={ind}
                   onClick={onClose}
-                  className="w-full flex items-center min-h-[62px] bg-white005 hover:bg-white12 px-[13px] gap-[12px]  rounded-[15px] cursor-pointer"
+                  className="w-full flex items-center min-h-[62px] hover:bg-white12 px-[13px] gap-[12px]  rounded-[15px] cursor-pointer"
                 >
                   <div className="relative h-fit">
                     <Image
