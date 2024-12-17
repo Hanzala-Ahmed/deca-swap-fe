@@ -1,5 +1,4 @@
-'use client';
-
+import { useState } from 'react';
 import { Doughnut } from 'react-chartjs-2';
 import {
   Chart as ChartJS,
@@ -7,7 +6,6 @@ import {
   Tooltip,
   Legend,
 } from 'chart.js';
-import { useState } from 'react';
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 
@@ -20,20 +18,13 @@ const Liquidity: React.FC<Props> = () => {
     labels: ['TKN', 'TKN', 'TKN', 'TKN', 'Other'],
     datasets: [
       {
-        data: [80.2, 20.2, 20.2, 20.2, 20.2], // Example values
+        data: [80.2, 20.2, 20.2, 20.2, 20.2],
         backgroundColor: [
-          activeIndex === 0 ? '#40F798' : 'rgba(64, 251, 177, 1)',
-          activeIndex === 1 ? '#40F798' : 'rgba(64, 251, 177, 0.6)',
-          activeIndex === 2 ? '#40F798' : 'rgba(64, 251, 177, 0.5)',
-          activeIndex === 3 ? '#40F798' : 'rgba(64, 251, 177, 0.4)',
-          activeIndex === 4 ? '#40F798' : 'rgba(64, 251, 177, 0.3)', // Highlight on active
-        ],
-        borderWidth: [
-          activeIndex === 0 ? 8 : 0,
-          activeIndex === 1 ? 1 : 0,
-          activeIndex === 2 ? 1 : 0,
-          activeIndex === 3 ? 1 : 0,
-          activeIndex === 4 ? 1 : 0,
+          '#40F798',
+          'rgba(64, 251, 177, 0.6)',
+          'rgba(64, 251, 177, 0.5)',
+          'rgba(64, 251, 177, 0.4)',
+          'rgba(64, 251, 177, 0.3)',
         ],
         borderColor: '#0D382909',
         hoverOffset: 8,
@@ -46,16 +37,21 @@ const Liquidity: React.FC<Props> = () => {
     cutout: '65%',
     onClick: (event: any, elements: any) => {
       if (elements.length > 0) {
-        const index = elements[0].index; // Get clicked index
-        setActiveIndex(index === activeIndex ? null : index); // Toggle highlight
+        const index = elements[0].index;
+        setActiveIndex(index === activeIndex ? null : index);
       }
+    },
+    onHover: (event: any, chartElement: any) => {
+      const index =
+        chartElement.length > 0 ? chartElement[0].index : null;
+      setActiveIndex(index);
     },
     plugins: {
       tooltip: {
         callbacks: {
           label: function (tooltipItem: any) {
-            const value = tooltipItem.raw.toFixed(1); // Format values
-            return `$${value}M (${((value / 100) * 100).toFixed(
+            const value = tooltipItem.raw.toFixed(1);
+            return `$${value}M (${((value / 161.0) * 100).toFixed(
               2
             )}%)`;
           },
@@ -64,7 +60,7 @@ const Liquidity: React.FC<Props> = () => {
         titleColor: '#fff',
         bodyColor: '#fff',
       },
-      legend: { display: false }, // Custom legend styling
+      legend: { display: false },
     },
   };
 
@@ -76,7 +72,7 @@ const Liquidity: React.FC<Props> = () => {
       <div className="flex justify-center items-center w-full mt-[40px]">
         <div
           className="relative"
-          style={{ width: '232px', height: '232px' }}
+          // style={{ width: '232px', height: '232px' }}
         >
           <Doughnut data={data} options={options} />
           <div className="absolute top-[50%] left-[50%] -z-10 translate-x-[-50%] translate-y-[-50%] text-center">
@@ -90,7 +86,7 @@ const Liquidity: React.FC<Props> = () => {
           <div
             key={index}
             className={`group flex items-center gap-2 cursor-pointer ${
-              activeIndex === index ? 'text-white' : ''
+              activeIndex === index ? 'text-white' : 'text-white52'
             }`}
             onClick={() =>
               setActiveIndex(activeIndex === index ? null : index)
@@ -109,11 +105,7 @@ const Liquidity: React.FC<Props> = () => {
                     : 'rgba(64, 251, 177, 1)',
               }}
             ></span>
-            <p
-              className={`${
-                activeIndex !== index && 'text-white52'
-              } text-[14px] group-hover:text-white`}
-            >
+            <p className={` text-[14px] group-hover:text-white`}>
               {label} <span>($20.2M, 20%)</span>
             </p>
           </div>

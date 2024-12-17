@@ -87,18 +87,13 @@ const Tabs: React.FC<Props> = ({
           key={tab.title}
           ref={(el: any) => (tabRefs.current[index] = el)}
           onClick={() => handleTabClick(tab, index)}
-          // style={{
-          //   width: `${activeTabWidth}px !important`,
-          // }}
           className={`relative z-10 ${
             activeTabIndex === index
               ? theme === 'secondary'
                 ? 'text-black'
                 : 'text-white'
               : 'text-gray-500'
-          } h-[24px] ${
-            activeTabIndex === index && 'hover:text-primary'
-          } min-w-fit w-full px-[15px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center ${
+          } h-[24px] min-w-fit hover:bg-tabsGradient hover:text-primary w-full px-[15px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center ${
             tabHeight ? `h-[${tabHeight}px]` : 'h-[24px]'
           } transition-colors duration-300`}
         >

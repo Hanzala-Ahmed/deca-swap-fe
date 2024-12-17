@@ -117,12 +117,73 @@ const VolumeGraph = () => {
       },
       tooltip: {
         enabled: true,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Ensure background is semi-transparent
         titleColor: '#fff',
         bodyColor: '#fff',
         displayColors: false,
         borderColor: '#555',
         borderWidth: 1,
+        // Custom styling for tooltip
+        external: function (context: any) {
+          // Tooltip Element
+          let tooltipEl = document.getElementById('chartjs-tooltip');
+
+          // Create element on first render
+          if (!tooltipEl) {
+            tooltipEl = document.createElement('div');
+            tooltipEl.id = 'chartjs-tooltip';
+            tooltipEl.style.opacity = '0';
+            tooltipEl.style.position = 'absolute';
+            tooltipEl.style.background = 'rgba(0, 0, 0, 0.5)';
+            tooltipEl.style.borderRadius = '5px';
+            tooltipEl.style.color = '#fff';
+            tooltipEl.style.border = '1px solid #555';
+            tooltipEl.style.pointerEvents = 'none';
+            tooltipEl.style.transition = 'opacity 0.3s';
+            // Adding backdrop filter
+            tooltipEl.style.backdropFilter = 'blur(5px)';
+            document.body.appendChild(tooltipEl);
+          }
+
+          // Hide if no tooltip
+          if (context.opacity === 0) {
+            tooltipEl.style.opacity = '0';
+            return;
+          }
+
+          // Set Text
+          if (context.body) {
+            const titleLines = context.title || [];
+            const bodyLines = context.body.map((b: any) => b.lines);
+
+            const innerHtml =
+              '<thead>' +
+              titleLines
+                .map((title: any) => `<tr><th>${title}</th></tr>`)
+                .join('') +
+              '</thead><tbody>' +
+              bodyLines
+                .map(
+                  (body: any, i: any) => `<tr><td>${body}</td></tr>`
+                )
+                .join('') +
+              '</tbody>';
+
+            tooltipEl.innerHTML = innerHtml;
+          }
+
+          // `this` will be the tooltip
+          const position =
+            context.chart.canvas.getBoundingClientRect();
+          tooltipEl.style.opacity = '1';
+          tooltipEl.style.left =
+            position.left +
+            window.pageXOffset +
+            context.caretX +
+            'px';
+          tooltipEl.style.top =
+            position.top + window.pageYOffset + context.caretY + 'px';
+        },
         callbacks: {
           label: function (tooltipItem: any) {
             const value = tooltipItem.raw;
