@@ -1,4 +1,8 @@
-import React from 'react';
+'use client';
+
+import useOnClickInside from '@/app/lib/hooks/useOnClickInside';
+import useOnClickOutside from '@/app/lib/hooks/useOnClickOutside';
+import React, { useRef, useState } from 'react';
 import { NumericFormat } from 'react-number-format';
 
 interface InputAmountProps {
@@ -7,6 +11,7 @@ interface InputAmountProps {
   disable?: boolean;
   textAlignRight?: boolean;
   inValidAmount?: boolean;
+  inputRef?: any;
 }
 
 const InputAmount: React.FC<InputAmountProps> = ({
@@ -15,22 +20,35 @@ const InputAmount: React.FC<InputAmountProps> = ({
   disable = false,
   textAlignRight = false,
   inValidAmount,
+  inputRef,
 }) => {
+  const wrapperRef = useRef<HTMLDivElement>(null);
+  const [focus, setFocus] = useState(false);
+
   // Handler to update the amount
   const handleValueChange = (values: any) => {
     const { floatValue } = values;
     if (setAmount) setAmount(floatValue || 0);
   };
 
+  // useOnClickOutside(inputRef, () => {
+  //   // const inputElement = wrapperRef.current?.querySelector('input');
+  //   // if (inputElement) {
+  //   //   inputElement.focus();
+  //   // }
+  //   setFocus(true);
+  // });
+
   return (
     <NumericFormat
-      value={amount}
+      value={amount == 0 ? '' : amount}
       displayType={'input'}
       thousandSeparator={true}
       // decimalScale={2}
       fixedDecimalScale={true}
       onValueChange={handleValueChange}
       placeholder="0"
+      autoFocus={true}
       disabled={disable}
       className={`w-full placeholder:text-white disabled:opacity-55 h-full bg-transparent border-none outline-none placeholder:text-gray text-[30px] md:text-[42px] ${
         textAlignRight ? 'text-right' : ''

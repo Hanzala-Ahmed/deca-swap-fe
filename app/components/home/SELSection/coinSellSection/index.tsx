@@ -76,6 +76,7 @@ const CoinSellSection: React.FC<Props> = ({
               amount={amount}
               setAmount={setAmount}
               inValidAmount={inValidAmount}
+              inputRef={sectionRef}
             />
           </div>
         </div>

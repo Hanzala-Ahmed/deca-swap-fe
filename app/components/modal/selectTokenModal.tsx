@@ -55,7 +55,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
                 <div
                   key={ind}
                   onClick={onClose}
-                  className="w-full flex items-center min-h-[62px] bg-white005 hover:bg-white12 px-[13px] gap-[12px] rounded-[15px] cursor-pointer"
+                  className="w-full flex items-center min-h-[62px] hover:bg-white12 px-[13px] gap-[12px] rounded-[15px] cursor-pointer"
                 >
                   <div className="relative h-fit">
                     <Image

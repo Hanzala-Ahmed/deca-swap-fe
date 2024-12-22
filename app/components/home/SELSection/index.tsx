@@ -43,11 +43,13 @@ const SELSection = () => {
   return (
     <div className="md:min-w-[500px] max-w-[500px] w-[95vw] p-2">
       <div className="w-full flex justify-between gap-2 mb-4">
-        <Tabs
-          tabs={SEL_SECTION_TABS}
-          activeTab={activeTab}
-          setActiveTab={setActiveTab}
-        />
+        <div className="w-fit">
+          <Tabs
+            tabs={SEL_SECTION_TABS}
+            activeTab={activeTab}
+            setActiveTab={setActiveTab}
+          />
+        </div>
 
         {/* setting button */}
         <SettingButton />
@@ -82,7 +84,12 @@ const SELSection = () => {
           />
         )}
         <div
-          onClick={() => setSwap(!swap)}
+          onClick={() => {
+            if (sellAmount > 0 || buyAmount > 0) {
+              setSellAmount(buyAmount);
+              setBuyAmount(sellAmount);
+            }
+          }}
           className="absolute items-center flex justify-center cursor-pointer rounded-[6px] overflow-hidden right-[calc(50%_-_42px)] top-[calc(50%_-_2rem)] rotate-45"
         >
           <SwapBox active={sellAmount > 0 || buyAmount > 0} />

@@ -9,12 +9,14 @@ interface InputAmountProps {
   amount: number;
   setAmount: any;
   inValidAmount?: boolean;
+  inputRef?: any;
 }
 
 const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
   amount,
   setAmount,
   inValidAmount,
+  inputRef,
 }) => {
   const [selectedToken, setSelectedToken] = useState('');
   const { showSelectTokenModal } = useModal();
@@ -28,6 +30,7 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
         {/* amount */}
         <div className="flex-1">
           <InputAmount
+            inputRef={inputRef}
             amount={amount}
             inValidAmount={inValidAmount}
             setAmount={(val: any) => {
