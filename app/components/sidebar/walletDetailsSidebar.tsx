@@ -38,7 +38,7 @@ const WalletDetailsSidebar: React.FC<WalletDetailsSidebarProps> = ({
       </div>
 
       {/* main content */}
-      <div className="relative max-h-[95vh] overflow-hidden overflow-y-auto">
+      <div className="relative max-h-[88vh] overflow-hidden overflow-y-auto">
         {isStreamDetailsOpen ? (
           <>
             <StreamDetails

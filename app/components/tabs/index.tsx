@@ -88,7 +88,7 @@ const Tabs: React.FC<Props> = ({
           ref={(el: any) => (tabRefs.current[index] = el)}
           onClick={() => handleTabClick(tab, index)}
           style={{
-            width: `${activeTabWidth}px`,
+            width: `${activeTabWidth}px !important`,
           }}
           className={`relative z-10 ${
             activeTabIndex === index

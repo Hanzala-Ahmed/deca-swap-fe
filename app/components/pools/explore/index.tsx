@@ -23,7 +23,7 @@ const Explore: React.FC<Props> = ({ onAddLiquidity }) => {
       </h1>
 
       <div className="w-full gap-3 flex flex-wrap justify-between">
-        <div className="w-fit">
+        <div className="w-fit min-w-40">
           <Tabs
             theme="secondary"
             tabs={EXPLORE_TABS}
@@ -33,12 +33,14 @@ const Explore: React.FC<Props> = ({ onAddLiquidity }) => {
           />
         </div>
         <div className="flex w-fit gap-3 flex-wrap-reverse">
-          <Tabs
-            tabs={DAYS}
-            activeTab={daysActiveTab}
-            setActiveTab={setDaysActiveTab}
-            tabHeight={32}
-          />
+          <div className="w-fit">
+            <Tabs
+              tabs={DAYS}
+              activeTab={daysActiveTab}
+              setActiveTab={setDaysActiveTab}
+              tabHeight={32}
+            />
+          </div>
           <div className="w-[230px]">
             <Searchbar
               onChange={(e) => setSearchValue(e.target.value)}

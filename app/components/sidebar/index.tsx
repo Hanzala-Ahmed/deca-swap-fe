@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 type SidebarProps = {
   isOpen: boolean;
@@ -11,9 +11,20 @@ const Sidebar: React.FC<SidebarProps> = ({
   onClose,
   children,
 }) => {
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
   return (
     <div
-      className={`fixed top-0 right-0 h-full w-96 bg-black z-50 sidebar-shadow transition-transform transform ${
+      className={`fixed bottom-0 right-0 h-[90vh] w-96 bg-black z-50 sidebar-shadow transition-transform transform ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}
     >
