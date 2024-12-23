@@ -13,6 +13,8 @@ interface InputAmountProps {
   amount: number;
   setAmount: (amount: number) => void;
   swap?: boolean;
+  selectedToken: string;
+  setSelectedToken: any;
 }
 
 const CoinSellSection: React.FC<Props> = ({
@@ -22,6 +24,8 @@ const CoinSellSection: React.FC<Props> = ({
   // setActive,
   inValidAmount,
   swap,
+  selectedToken,
+  setSelectedToken,
 }) => {
   const [active, setActive] = useState(false);
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -36,7 +40,7 @@ const CoinSellSection: React.FC<Props> = ({
       className="w-fit h-fit relative"
       onMouseEnter={() => setActive(true)}
     >
-      {amount > 0 && !inValidAmount && active && (
+      {amount > 0 && !inValidAmount && active && selectedToken && (
         <Image
           src="/assets/valid-amount-succes.svg"
           alt="valid"
@@ -51,7 +55,7 @@ const CoinSellSection: React.FC<Props> = ({
         className={`w-full min-h-[150px] md:min-h-[167px] rounded-[15px] p-[2px] relative ${
           swap ? 'coin-buy-clip-path' : 'coin-sell-clip-path'
         } ${
-          amount > 0 && !inValidAmount && active
+          amount > 0 && !inValidAmount && active && selectedToken
             ? 'bg-primary'
             : inValidAmount
             ? 'bg-primaryRed'
@@ -63,16 +67,24 @@ const CoinSellSection: React.FC<Props> = ({
           className={`w-full h-full z-20 sticky left-0 top-0 px-7 py-5 rounded-[13px] ${
             swap ? 'coin-buy-clip-path' : 'coin-sell-clip-path'
           } ${
-            amount > 0 && !inValidAmount && active
+            amount > 0 && !inValidAmount && active && selectedToken
               ? 'bg-gradient-to-r from-[#071310] to-[#062118]'
               : 'bg-[#0D0D0D]'
-          } ${amount > 0 && !inValidAmount && active && 'dotsbg'}`}
+          } ${
+            amount > 0 &&
+            !inValidAmount &&
+            active &&
+            selectedToken &&
+            'dotsbg'
+          }`}
         >
           {/* title */}
           <p className="uppercase text-white72 text-[18px]">SELL</p>
 
           <div className="w-full h-full">
             <SelectTokenWithAmountSection
+              selectedToken={selectedToken}
+              setSelectedToken={setSelectedToken}
               amount={amount}
               setAmount={setAmount}
               inValidAmount={inValidAmount}

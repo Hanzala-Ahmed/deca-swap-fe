@@ -10,6 +10,8 @@ interface InputAmountProps {
   setAmount: any;
   inValidAmount?: boolean;
   inputRef?: any;
+  selectedToken: string;
+  setSelectedToken: any;
 }
 
 const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
@@ -17,8 +19,10 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
   setAmount,
   inValidAmount,
   inputRef,
+  selectedToken,
+  setSelectedToken,
 }) => {
-  const [selectedToken, setSelectedToken] = useState('');
+  // const [selectedToken, setSelectedToken] = useState('');
   const { showSelectTokenModal } = useModal();
 
   const findedToken = TOKENS.find(

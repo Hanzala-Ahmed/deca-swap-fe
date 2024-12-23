@@ -34,7 +34,7 @@ const Tabs: React.FC<Props> = ({
     if (tabRefs.current[index]) {
       setActiveTabWidth(
         index === tabs.length - 1
-          ? tabRefs.current[index].offsetWidth + 4
+          ? tabRefs.current[index].offsetWidth - 4
           : tabRefs.current[index].offsetWidth
       );
       setActiveTabOffset(
@@ -50,7 +50,7 @@ const Tabs: React.FC<Props> = ({
     if (tabRefs.current[index]) {
       setActiveTabWidth(
         index === tabs.length - 1
-          ? tabRefs.current[index].offsetWidth + 4
+          ? tabRefs.current[index].offsetWidth - 4
           : tabRefs.current[index].offsetWidth
       );
       setActiveTabOffset(
@@ -72,9 +72,9 @@ const Tabs: React.FC<Props> = ({
             : 'bg-white12'
         } ${
           hover && '!bg-tabsGradient'
-        } rounded-[7px] transition-all duration-300`}
+        } rounded-[7px] transition-all duration-300 border-[2px] border-black`}
         style={{
-          width: `${activeTabWidth}px`,
+          width: `${activeTabWidth + 4}px`,
           transform: `translateX(${activeTabOffset}px)`,
         }}
       ></div>
@@ -87,13 +87,16 @@ const Tabs: React.FC<Props> = ({
           key={tab.title}
           ref={(el: any) => (tabRefs.current[index] = el)}
           onClick={() => handleTabClick(tab, index)}
+          style={{
+            width: `${activeTabWidth}px`,
+          }}
           className={`relative z-10 ${
             activeTabIndex === index
               ? theme === 'secondary'
                 ? 'text-black'
                 : 'text-white'
               : 'text-gray-500'
-          } h-[24px] min-w-fit hover:bg-tabsGradient hover:text-primary w-full px-[15px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center ${
+          } h-[24px] min-w-fit hover:bg-tabsGradient hover:text-primary px-[15px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center ${
             tabHeight ? `h-[${tabHeight}px]` : 'h-[24px]'
           } transition-colors duration-300`}
         >

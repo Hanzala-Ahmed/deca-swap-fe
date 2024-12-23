@@ -7,22 +7,22 @@ type Props = {
 
 const SwapBox: React.FC<Props> = ({ active = false }) => {
   return (
-    <div className="w-16 h-16 overflow-hidden flex gap-4 p-2">
+    <div className="w-16 h-16 overflow-hidden flex gap-4 p-2 group">
       <div
-        className={`w-full h-full rounded-[4px] flex justify-center items-center p-1 ${
-          active
-            ? 'bg-gradient-to-r from-[#071310] to-[#062118]'
-            : 'bg-white12'
-        }`}
+        className={`w-full h-full rounded-[4px] flex justify-center bg-white12 items-center p-1 group-hover:bg-gradient-to-r from-[#071310] to-[#062118]
+          `}
       >
         <Image
-          src={
-            active
-              ? '/icons/swap-arrows-green.svg'
-              : '/icons/swap-arrows.svg'
-          }
+          src={'/icons/swap-arrows.svg'}
           alt="swap"
-          className="-rotate-45 w-5"
+          className="-rotate-45 w-5 group-hover:hidden block"
+          width={1000}
+          height={1000}
+        />
+        <Image
+          src={'/icons/swap-arrows-green.svg'}
+          alt="swap"
+          className="-rotate-45 w-5 group-hover:block hidden"
           width={1000}
           height={1000}
         />

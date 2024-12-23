@@ -23,6 +23,8 @@ const SELSection = () => {
   const [invalidBuyAmount, setInvalidBuyAmount] = useState(false);
   const [isWalletConnected, setIsWalletConnected] = useState(false);
   const [swap, setSwap] = useState(false);
+  const [buySelectedToken, setBuySelectedToken] = useState('');
+  const [sellSelectedToken, setSellSelectedToken] = useState('');
 
   const { addToast } = useToast();
 
@@ -64,6 +66,8 @@ const SELSection = () => {
       <div className="w-full mt-4 flex flex-col relative gap-[23px]">
         {swap ? (
           <CoinBuySection
+            selectedToken={buySelectedToken}
+            setSelectedToken={setBuySelectedToken}
             amount={buyAmount}
             setAmount={(val: any) => setBuyAmount(val)}
             // active={isSellAmountActive}
@@ -73,6 +77,8 @@ const SELSection = () => {
           />
         ) : (
           <CoinSellSection
+            selectedToken={sellSelectedToken}
+            setSelectedToken={setSellSelectedToken}
             amount={sellAmount}
             setAmount={(val: any) => {
               setSellAmount(val);
@@ -80,7 +86,6 @@ const SELSection = () => {
             // active={isSellAmountActive}
             inValidAmount={invaliSelldAmount}
             // setActive={setIsSellAmountActive}
-            swap={swap}
           />
         )}
         <div
@@ -96,6 +101,8 @@ const SELSection = () => {
         </div>
         {swap ? (
           <CoinSellSection
+            selectedToken={sellSelectedToken}
+            setSelectedToken={setSellSelectedToken}
             amount={sellAmount}
             setAmount={(val: any) => {
               setSellAmount(val);
@@ -107,6 +114,8 @@ const SELSection = () => {
           />
         ) : (
           <CoinBuySection
+            selectedToken={buySelectedToken}
+            setSelectedToken={setBuySelectedToken}
             amount={buyAmount}
             setAmount={(val: any) => setBuyAmount(val)}
             // active={isSellAmountActive}
@@ -118,13 +127,16 @@ const SELSection = () => {
       </div>
 
       {/* Detail Section */}
-      {buyAmount > 0 && sellAmount > 0 && (
-        <DetailSection
-          sellAmount={`${swap ? buyAmount : sellAmount}`}
-          buyAmount={`${swap ? sellAmount : buyAmount}`}
-          inValidAmount={invaliSelldAmount || invalidBuyAmount}
-        />
-      )}
+      {buyAmount > 0 &&
+        sellAmount > 0 &&
+        sellSelectedToken &&
+        buySelectedToken && (
+          <DetailSection
+            sellAmount={`${swap ? buyAmount : sellAmount}`}
+            buyAmount={`${swap ? sellAmount : buyAmount}`}
+            inValidAmount={invaliSelldAmount || invalidBuyAmount}
+          />
+        )}
 
       <div className="w-full my-[30px]">
         {isWalletConnected ? (
