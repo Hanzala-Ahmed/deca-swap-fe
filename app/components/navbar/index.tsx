@@ -66,14 +66,24 @@ const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
                 key={link.title}
                 href={link.href}
                 className={`flex gap-[6px] items-center py-[10px] px-[9px] rounded-[8px] ${
-                  pathname === link.href
+                  (
+                    link.href === '/'
+                      ? pathname === link.href
+                      : pathname.startsWith(link.href) &&
+                        pathname !== '/'
+                  )
                     ? ' bg-primaryGradient text-black'
                     : ''
                 }`}
               >
                 <Image
                   src={`${
-                    pathname === link.href
+                    (
+                      link.href === '/'
+                        ? pathname === link.href
+                        : pathname.startsWith(link.href) &&
+                          pathname !== '/'
+                    )
                       ? `/icons/${link.href}-black.svg`
                       : link.icon
                   }`}

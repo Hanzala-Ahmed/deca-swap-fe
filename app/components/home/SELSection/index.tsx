@@ -48,6 +48,7 @@ const SELSection = () => {
         <div className="w-fit">
           <Tabs
             tabs={SEL_SECTION_TABS}
+            theme="secondary"
             activeTab={activeTab}
             setActiveTab={setActiveTab}
           />

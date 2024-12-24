@@ -69,6 +69,7 @@ export default function LiquidityStats({
             activeTab={activeTab}
             setActiveTab={setActiveTab}
             tabHeight={32}
+            theme="secondary"
           />
         </div>
 
@@ -156,7 +157,7 @@ const MiniGraph: React.FC<MiniGraphProps> = ({
         {
           data: [20, 80], // Example data
           backgroundColor: ['#40FCB4', '#242424'],
-          hoverOffset: 5,
+          hoverOffset: 2,
           borderWidth: 0, // Removes border
         },
       ],

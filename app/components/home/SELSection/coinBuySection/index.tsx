@@ -38,7 +38,7 @@ const CoinBuySection: React.FC<Props> = ({
     <div
       ref={sectionRef}
       className="w-fit h-fit relative"
-      onClick={() => setActive(true)}
+      // onClick={() => setActive(true)}
     >
       {amount > 0 && !inValidAmount && active && selectedToken && (
         <Image
@@ -61,7 +61,7 @@ const CoinBuySection: React.FC<Props> = ({
             ? 'bg-primaryRed'
             : 'bg-gray'
         }`}
-        onClick={() => setActive(!active)}
+        // onClick={() => setActive(!active)}
       >
         <div
           className={`w-full h-full z-20 sticky left-0 top-0 px-7 py-5 rounded-[13px] ${
@@ -87,6 +87,11 @@ const CoinBuySection: React.FC<Props> = ({
             amount={amount}
             setAmount={setAmount}
             inValidAmount={inValidAmount}
+            onInputFocus={() => {
+              if (!active) {
+                setActive(true);
+              }
+            }}
           />
         </div>
       </div>

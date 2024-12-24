@@ -11,17 +11,17 @@ const Sidebar: React.FC<SidebarProps> = ({
   onClose,
   children,
 }) => {
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
+  // useEffect(() => {
+  //   if (isOpen) {
+  //     document.body.style.overflow = 'hidden';
+  //   } else {
+  //     document.body.style.overflow = '';
+  //   }
 
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isOpen]);
+  //   return () => {
+  //     document.body.style.overflow = '';
+  //   };
+  // }, [isOpen]);
   return (
     <div
       className={`fixed bottom-0 right-0 h-[90vh] w-96 bg-black z-50 sidebar-shadow transition-transform transform ${

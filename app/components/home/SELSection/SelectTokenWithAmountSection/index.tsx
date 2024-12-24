@@ -12,6 +12,7 @@ interface InputAmountProps {
   inputRef?: any;
   selectedToken: string;
   setSelectedToken: any;
+  onInputFocus?: () => void;
 }
 
 const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
@@ -21,6 +22,7 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
   inputRef,
   selectedToken,
   setSelectedToken,
+  onInputFocus,
 }) => {
   // const [selectedToken, setSelectedToken] = useState('');
   const { showSelectTokenModal } = useModal();
@@ -40,6 +42,7 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
             setAmount={(val: any) => {
               setAmount(val);
             }}
+            onInputFocus={onInputFocus}
           />
         </div>
 

@@ -12,6 +12,7 @@ interface InputAmountProps {
   textAlignRight?: boolean;
   inValidAmount?: boolean;
   inputRef?: any;
+  onInputFocus?: () => void;
 }
 
 const InputAmount: React.FC<InputAmountProps> = ({
@@ -21,6 +22,7 @@ const InputAmount: React.FC<InputAmountProps> = ({
   textAlignRight = false,
   inValidAmount,
   inputRef,
+  onInputFocus,
 }) => {
   const wrapperRef = useRef<HTMLDivElement>(null);
   const [focus, setFocus] = useState(false);
@@ -46,6 +48,7 @@ const InputAmount: React.FC<InputAmountProps> = ({
       thousandSeparator={true}
       // decimalScale={2}
       fixedDecimalScale={true}
+      onFocus={onInputFocus}
       onValueChange={handleValueChange}
       placeholder="0"
       autoFocus={true}

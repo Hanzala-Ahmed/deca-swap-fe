@@ -124,6 +124,7 @@ const WalletDetailsSidebar: React.FC<WalletDetailsSidebarProps> = ({
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
                   tabHeight={32}
+                  theme="secondary"
                 />
               </div>
 

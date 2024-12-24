@@ -125,7 +125,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
 
             <p className="text-[20px] text-white72">Tokens</p>
 
-            <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[400px] overflow-y-auto scroll-hidden pb-5">
+            <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[385px] overflow-y-auto scroll-hidden pb-5">
               {TOKENS.map((token, ind) => (
                 <div
                   key={ind}

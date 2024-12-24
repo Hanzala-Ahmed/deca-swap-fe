@@ -27,7 +27,7 @@ const Liquidity: React.FC<Props> = () => {
           'rgba(64, 251, 177, 0.3)',
         ],
         borderColor: '#0D382909',
-        hoverOffset: 8,
+        hoverOffset: 3,
       },
     ],
   };

@@ -60,6 +60,7 @@ const PoolToken: React.FC<Props> = () => {
           <div className="w-fit">
             <Tabs
               tabs={POOL_TOKEN_TABS}
+              theme="secondary"
               activeTab={poolTokenActiveTab}
               setActiveTab={setPoolTokenActiveTab}
               tabHeight={32}
@@ -69,6 +70,7 @@ const PoolToken: React.FC<Props> = () => {
             <Tabs
               tabs={DAYS}
               activeTab={daysActiveTab}
+              theme="secondary"
               setActiveTab={setDaysActiveTab}
               tabHeight={32}
             />
@@ -93,7 +95,9 @@ const PoolToken: React.FC<Props> = () => {
         <div>
           {/* Render the graph based on the active tab */}
           {poolTokenActiveTab.title === 'Volume' && <VolumeGraph />}
-          {poolTokenActiveTab.title === 'Liquidity' && <></>}
+          {poolTokenActiveTab.title === 'Liquidity' && (
+            <RewardsGraph />
+          )}
         </div>
       </div>
     </>

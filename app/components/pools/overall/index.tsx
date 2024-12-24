@@ -41,6 +41,7 @@ const PoolOverall: React.FC<Props> = () => {
           <div className="w-fit">
             <Tabs
               tabs={OVERALL_SECTION_TABS}
+              theme="secondary"
               activeTab={overllActiveTab}
               setActiveTab={setOverallActiveTab}
               tabHeight={32}
@@ -49,6 +50,7 @@ const PoolOverall: React.FC<Props> = () => {
           <div className="w-fit">
             <Tabs
               tabs={DAYS}
+              theme="secondary"
               activeTab={daysActiveTab}
               setActiveTab={setDaysActiveTab}
               tabHeight={32}

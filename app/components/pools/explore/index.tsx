@@ -36,6 +36,7 @@ const Explore: React.FC<Props> = ({ onAddLiquidity }) => {
           <div className="w-fit">
             <Tabs
               tabs={DAYS}
+              theme="secondary"
               activeTab={daysActiveTab}
               setActiveTab={setDaysActiveTab}
               tabHeight={32}

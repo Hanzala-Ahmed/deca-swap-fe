@@ -38,7 +38,7 @@ const CoinSellSection: React.FC<Props> = ({
     <div
       ref={sectionRef}
       className="w-fit h-fit relative"
-      onMouseEnter={() => setActive(true)}
+      // onMouseEnter={() => setActive(true)}
     >
       {amount > 0 && !inValidAmount && active && selectedToken && (
         <Image
@@ -89,6 +89,9 @@ const CoinSellSection: React.FC<Props> = ({
               setAmount={setAmount}
               inValidAmount={inValidAmount}
               inputRef={sectionRef}
+              onInputFocus={() => {
+                if (!active) setActive(true);
+              }}
             />
           </div>
         </div>

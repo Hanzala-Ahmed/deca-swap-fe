@@ -121,6 +121,7 @@ const WalletDetailsModal: React.FC<WalletDetailsModalProps> = ({
               <div className="mt-[34px] w-full">
                 <Tabs
                   tabs={WALLET_TABS}
+                  theme="secondary"
                   activeTab={activeTab}
                   setActiveTab={setActiveTab}
                   tabHeight={32}
