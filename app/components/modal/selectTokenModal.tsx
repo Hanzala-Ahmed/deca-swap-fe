@@ -19,7 +19,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
 
   return (
     <Modal isOpen={isOpen} onClose={onClose}>
-      <div className="p-7">
+      <div className="p-7 h-full">
         <div className="flex justify-between gap-2 h-full">
           <div className="">Select Token</div>
           <Image
@@ -46,7 +46,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
         )}
         {debouncedSearchValue.length > 0 ? (
           <>
-            <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[400px] overflow-y-auto">
+            <div className="flex flex-col gap-1 my-[13px] max-h-[50vh] overflow-y-auto">
               {TOKENS.filter((token) =>
                 token.name
                   .toLowerCase()
@@ -90,7 +90,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
         )}
 
         {!(searchValue.length > 0) && (
-          <>
+          <div className="h-full">
             <p className="text-[20px] text-white72">
               Recent/ Popular
             </p>
@@ -125,12 +125,12 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
 
             <p className="text-[20px] text-white72">Tokens</p>
 
-            <div className="flex flex-col gap-1 my-[13px] max-h-[280px] md:max-h-[385px] overflow-y-auto scroll-hidden pb-5">
+            <div className="flex flex-col gap-1 my-[13px] max-h-[50vh] overflow-y-auto pb-5">
               {TOKENS.map((token, ind) => (
                 <div
                   key={ind}
                   onClick={onClose}
-                  className="w-full flex items-center min-h-[62px] hover:bg-white12 px-[13px] gap-[12px]  rounded-[15px] cursor-pointer"
+                  className="w-full flex items-center min-h-[62px] hover:bg-white12 px-[13px] gap-[12px] rounded-[15px] cursor-pointer"
                 >
                   <div className="relative h-fit">
                     <Image
@@ -159,7 +159,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
                 </div>
               ))}
             </div>
-          </>
+          </div>
         )}
       </div>
     </Modal>

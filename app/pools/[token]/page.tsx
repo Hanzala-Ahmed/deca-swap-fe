@@ -39,7 +39,7 @@ export default function Token() {
           <div className="mt-[34px] flex flex-col lg:grid grid-cols-5 gap-28">
             <div className="md:col-span-3 flex flex-col gap-8">
               <PoolToken />
-              <div className="md:mt-[76px]">
+              <div className="md:mt-[50px]">
                 <Activity />
               </div>
             </div>
