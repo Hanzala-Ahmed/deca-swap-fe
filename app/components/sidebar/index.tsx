@@ -24,7 +24,7 @@ const Sidebar: React.FC<SidebarProps> = ({
   // }, [isOpen]);
   return (
     <div
-      className={`fixed bottom-0 right-0 h-[90vh] w-96 bg-black z-50 sidebar-shadow transition-transform transform ${
+      className={`fixed bottom-0 right-0 h-[90vh] w-[96vw] md:w-96 bg-black z-50 sidebar-shadow transition-transform transform ${
         isOpen ? 'translate-x-0' : 'translate-x-full'
       }`}
     >

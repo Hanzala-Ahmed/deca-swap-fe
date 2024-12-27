@@ -10,6 +10,7 @@ import { useAccount } from 'wagmi';
 import Button from '../button';
 import Searchbar from '../searchbar';
 import WalletButton from '../walletButton';
+import MobileNavigation from './mobileNavigation';
 
 type Props = {
   isBack?: boolean;
@@ -18,6 +19,7 @@ type Props = {
 
 const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
   const { isConnected, address } = useAccount();
+  const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
   const pathname = usePathname();
   const { showWalletDetailsSidebar, showGlobalStreamSidebar } =
     useSidebar();
@@ -28,7 +30,27 @@ const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
   };
 
   return (
-    <div className="px-5 py-4 w-full flex gap-6 md:gap-0 justify-between">
+    <div className="px-5 py-4 w-full flex gap-6 md:gap-0 justify-between relative">
+      <div
+        onClick={() => setIsMobileNavOpen(true)}
+        className="md:hidden absolute cursor-pointer top-6 -left-2 w-6 h-6 rounded-[6px] flex items-center justify-center border-primary border-[2px]"
+      >
+        <Image
+          src="/icons/arrow-down-white.svg"
+          alt="menu"
+          className="w-2 h-2 -rotate-90"
+          width={20}
+          height={20}
+        />
+      </div>
+
+      <MobileNavigation
+        isOpen={isMobileNavOpen}
+        onClose={() => {
+          setIsMobileNavOpen(false);
+        }}
+      />
+
       {/* logo section with nav links */}
       <div className="flex gap-[18px] w-fit h-fit">
         <Link
