@@ -46,7 +46,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
         )}
         {debouncedSearchValue.length > 0 ? (
           <>
-            <div className="flex flex-col gap-1 my-[13px] max-h-[50vh] overflow-y-auto">
+            <div className="flex flex-col gap-1 my-[13px] h-[30vh] overflow-y-auto scrollbar-hide">
               {TOKENS.filter((token) =>
                 token.name
                   .toLowerCase()
@@ -95,7 +95,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
               Recent/ Popular
             </p>
 
-            <div className="flex gap-1 my-[13px] overflow-x-auto scroll-hidden">
+            <div className="flex gap-1 my-[13px] overflow-x-auto scrollbar-hide">
               {TOKENS.map((token, ind) => (
                 <div
                   key={ind}
@@ -125,7 +125,7 @@ const SelectTokenModal: React.FC<SelectTokenModalProps> = ({
 
             <p className="text-[20px] text-white72">Tokens</p>
 
-            <div className="flex flex-col gap-1 my-[13px] max-h-[50vh] overflow-y-auto pb-5">
+            <div className="flex flex-col gap-1 my-[13px] scrollbar-hide h-[30vh] overflow-y-auto pb-5">
               {TOKENS.map((token, ind) => (
                 <div
                   key={ind}

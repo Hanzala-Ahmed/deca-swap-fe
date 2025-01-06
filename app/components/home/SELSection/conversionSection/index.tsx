@@ -23,13 +23,22 @@ const ConversionSection: React.FC = ({}) => {
           <p>USDC</p>
         </div>
         <div className="flex-1 flex justify-center items-center cursor-pointer">
-          <Image
-            src={'/icons/swap-arrows.svg'}
-            alt="swap-arrows"
-            className="w-[18px] h-[18px] rotate-90"
-            width={1000}
-            height={1000}
-          />
+          <div className="group">
+            <Image
+              src={'/icons/swap-arrows.svg'}
+              alt="swap-arrows"
+              className="w-[18px] h-[18px] rotate-90 group-hover:hidden block"
+              width={1000}
+              height={1000}
+            />
+            <Image
+              src={'/icons/swap-arrows-green.svg'}
+              alt="swap-arrows"
+              className="w-[18px] h-[18px] rotate-90 group-hover:block hidden"
+              width={1000}
+              height={1000}
+            />
+          </div>
         </div>
         <div className="flex gap-1 items-center justify-center text-[18px]">
           <Image
@@ -49,7 +58,7 @@ const ConversionSection: React.FC = ({}) => {
         <InputAmount amount={amount} setAmount={setAmount} />
         {/* </div> */}
         <p className="w-[70%] flex justify-center items-cente text-white72">
-          is eqaul to
+          is equal to
         </p>
         {/* <div className="max-w-[33%] w-fit"> */}
         <InputAmount

@@ -19,7 +19,7 @@ const SearchbarWithIcon: React.FC<Props> = ({
          ${
            value
              ? 'bg-successGradient border-success'
-             : 'bg-[#202220] border-primary'
+             : 'border-primary'
          }`}
       >
         <Image

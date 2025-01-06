@@ -38,7 +38,7 @@ const AddLiquidtySection: React.FC<Props> = ({
             ? 'bg-primary'
             : inValidAmount
             ? 'bg-primaryRed'
-            : 'bg-gray'
+            : 'bg-white12'
         }`}
         onClick={() => setActive(!active)}
       >

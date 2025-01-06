@@ -49,14 +49,14 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
         {/* select token */}
         {selectedToken ? (
           <div
-            className={`min-w-[165px] w-fit h-12 rounded-[25px] p-[2px] ${
+            className={`min-w-[165px] group w-fit h-12 rounded-[25px] p-[2px] ${
               amount > 0 && !inValidAmount
                 ? ' bg-borderGradient'
                 : 'bg-[#373D3F]'
             }`}
           >
             <div
-              className={`min-w-[165px] overflow-hidden w-fit h-full bg-[#0D0D0D] p-2 gap-[14px] flex rounded-[25px] items-center justify-between cursor-pointer uppercase font-bold
+              className={`min-w-[165px] overflow-hidden w-fit h-full bg-[#0D0D0D] group-hover:bg-[#121212] p-2 gap-[14px] flex rounded-[25px] items-center justify-between cursor-pointer uppercase font-bold
                 `}
               onClick={() => setSelectedToken('')}
             >
@@ -85,7 +85,7 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
               <Image
                 src="/icons/arrow-down-white.svg"
                 alt="close"
-                className="w-fit h-fit"
+                className="w-fit h-fit mr-4"
                 width={20}
                 height={20}
               />
@@ -97,7 +97,7 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
               showSelectTokenModal(true);
               setSelectedToken('USDT');
             }}
-            className="min-w-[165px] w-fit h-12 bg-primaryGradient py-[13px] px-[20px] gap-[14px] flex rounded-[25px] items-center justify-between text-black cursor-pointer uppercase font-bold"
+            className="min-w-[165px] w-fit h-12 bg-primaryGradient hover:opacity-85 py-[13px] px-[20px] gap-[14px] flex rounded-[25px] items-center justify-between text-black cursor-pointer uppercase font-bold"
           >
             <p>Select Token</p>
             <Image

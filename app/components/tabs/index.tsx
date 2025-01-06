@@ -63,7 +63,7 @@ const Tabs: React.FC<Props> = ({
     <div
       className={`${
         hoverStates && 'group'
-      } relative p-[2px] border-[2px] border-primary flex rounded-[10px] w-full overflow-hidden`}
+      } relative p-[2px] border-[2px] border-primary flex rounded-[7px] w-full overflow-hidden`}
     >
       <div
         className={`absolute top-0 left-0 h-full ${
@@ -72,24 +72,15 @@ const Tabs: React.FC<Props> = ({
             : 'bg-white12'
         } rounded-[7px] transition-all duration-300 border-[2px] border-black`}
         style={{
-          width: `${activeTabWidth}px`,
+          width: `${activeTabWidth * 1.028}px`,
           transform: `translateX(${activeTabOffset}px)`,
         }}
       ></div>
       {tabs.map((tab: any, index: number) => (
         <div
-          // onMouseEnter={() =>
-          //   hoverStates && activeTabIndex === index && setHover(true)
-          // }
-          // onMouseLeave={() => setHover(false)}
           key={tab.title}
           ref={(el: any) => (tabRefs.current[index] = el)}
           onClick={() => handleTabClick(tab, index)}
-          style={
-            {
-              // width: `${activeTabWidth}px !important`,
-            }
-          }
           className={`relative z-10 ${
             activeTabIndex === index
               ? theme === 'secondary'
@@ -99,9 +90,9 @@ const Tabs: React.FC<Props> = ({
           } ${
             activeTabIndex !== index &&
             'hover:bg-tabsGradient hover:text-primary -z-10'
-          } h-[24px] min-w-fit w-full px-[15px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center ${
+          } ${
             tabHeight ? `h-[${tabHeight}px]` : 'h-[24px]'
-          } transition-colors duration-300`}
+          } h-full min-w-fit w-full px-[12px] rounded-[7px] cursor-pointer uppercase flex justify-center items-center transition-colors duration-300`}
         >
           {tab.title}
         </div>

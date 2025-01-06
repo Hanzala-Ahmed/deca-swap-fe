@@ -119,7 +119,7 @@ const VolumeGraph = () => {
       },
       tooltip: {
         enabled: true,
-        backgroundColor: 'rgba(0, 0, 0, 0.5)', // Ensure background is semi-transparent
+        backgroundColor: 'rgba(13, 13, 13, 0.75)', // Ensure background is semi-transparent
         titleColor: '#fff',
         bodyColor: '#fff',
         displayColors: false,
@@ -136,14 +136,15 @@ const VolumeGraph = () => {
             tooltipEl.id = 'chartjs-tooltip';
             tooltipEl.style.opacity = '0';
             tooltipEl.style.position = 'absolute';
-            tooltipEl.style.background = 'rgba(0, 0, 0, 0.5)';
+            tooltipEl.style.background = 'rgba(13, 13, 13, 0.75)';
             tooltipEl.style.borderRadius = '5px';
             tooltipEl.style.color = '#fff';
             tooltipEl.style.border = '1px solid #555';
             tooltipEl.style.pointerEvents = 'none';
             tooltipEl.style.transition = 'opacity 0.3s';
-            // Adding backdrop filter
             tooltipEl.style.backdropFilter = 'blur(5px)';
+            tooltipEl.style.transform = 'translate3d(0, 0, 0)';
+            tooltipEl.style.zIndex = '1000';
             document.body.appendChild(tooltipEl);
           }
 
