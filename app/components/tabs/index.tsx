@@ -72,7 +72,7 @@ const Tabs: React.FC<Props> = ({
             : 'bg-white12'
         } rounded-[7px] transition-all duration-300 border-[2px] border-black`}
         style={{
-          width: `${activeTabWidth * 1.028}px`,
+          width: `${activeTabWidth * 1.032}px`,
           transform: `translateX(${activeTabOffset}px)`,
         }}
       ></div>

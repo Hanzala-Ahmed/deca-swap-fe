@@ -122,7 +122,7 @@ const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
       </div>
 
       {/* searchbar */}
-      <div className="w-full lg:flex hidden absolute z-50 justify-center items-center h-fit">
+      <div className="w-full lg:flex hidden absolute -z-10 justify-center items-center h-fit">
         <div
           className={`
           md:flex hidden items-center h-10 mx-2 w-full md:max-w-[200px] lg:max-w-[340px]`}

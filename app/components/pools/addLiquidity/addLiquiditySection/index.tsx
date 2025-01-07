@@ -33,7 +33,7 @@ const AddLiquidtySection: React.FC<Props> = ({
         />
       )}
       <div
-        className={`w-full min-h-[150px] md:min-h-[167px] rounded-[15px] p-[2px] relative coin-sell-clip-path ${
+        className={`w-full min-h-[150px] md:min-h-[167px] rounded-[15px] p-[2px] relative ${
           amount > 0 && !inValidAmount
             ? 'bg-primary'
             : inValidAmount
@@ -52,7 +52,7 @@ const AddLiquidtySection: React.FC<Props> = ({
           />
         )}
         <div
-          className={`w-full h-full z-20 sticky left-0 top-0 px-7 py-5 rounded-[13px] coin-sell-clip-path ${
+          className={`w-full h-full z-20 sticky left-0 top-0 px-7 py-5 rounded-[13px] ${
             amount > 0 && !inValidAmount
               ? 'bg-gradient-to-r from-[#071310] to-[#062118]'
               : 'bg-black'

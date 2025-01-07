@@ -21,7 +21,7 @@ const Tag: React.FC<Props> = ({
 }) => {
   return (
     <span
-      className={`cursor-pointer hover:bg-white12 px-3 rounded-[10px] flex justify-center items-center text-[15px] h-[32px] border-[2px] border-primary ${
+      className={`cursor-pointer hover:bg-white12 hover:text-white px-3 rounded-[10px] flex justify-center items-center text-[15px] h-[32px] border-[2px] border-primary ${
         theme === 'primary' ||
         value?.toLocaleLowerCase() === title?.toLocaleLowerCase()
           ? 'bg-white12 text-white'

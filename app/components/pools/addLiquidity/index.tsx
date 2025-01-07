@@ -49,7 +49,9 @@ const AddLiquidity = () => {
           inValidAmount={invaliSelldAmount}
           setActive={SetIsAddLiquidityAmountActive}
         />
-        <div className="absolute items-center flex justify-center rounded-[6px] overflow-hidden right-[calc(50%_-_42px)] top-[calc(50%_-_2rem)] rotate-45">
+        <div className="absolute items-center flex border-[#1F1F1F] border-[2px] border-opacity-[1.5] bg-[#0D0D0D] justify-center cursor-pointer rounded-[6px] right-[calc(50%_-_42px)] top-[calc(50%_-_2rem)] rotate-45 z-50">
+          <div className="w-[24px] h-[22.5px] absolute bg-black -rotate-45 -z-30 -left-[14px] top-[51px]" />
+          <div className="w-[24px] h-[22.5px] absolute bg-black -rotate-45 -z-30 -right-[10px] -top-[13px]" />
           <EqualBox active={sellAmount > 0 || buyAmount > 0} />
         </div>
         <LimitSection />
