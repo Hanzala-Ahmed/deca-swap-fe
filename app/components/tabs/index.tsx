@@ -34,7 +34,7 @@ const Tabs: React.FC<Props> = ({
     if (tabRefs.current[index]) {
       setActiveTabWidth(
         index === tabs.length - 1
-          ? tabRefs.current[index].offsetWidth
+          ? tabRefs.current[index].offsetWidth * 1.034
           : tabRefs.current[index].offsetWidth
       );
       setActiveTabOffset(
@@ -50,7 +50,7 @@ const Tabs: React.FC<Props> = ({
     if (tabRefs.current[index]) {
       setActiveTabWidth(
         index === tabs.length - 1
-          ? tabRefs.current[index].offsetWidth
+          ? tabRefs.current[index].offsetWidth * 1.034
           : tabRefs.current[index].offsetWidth
       );
       setActiveTabOffset(
@@ -72,7 +72,7 @@ const Tabs: React.FC<Props> = ({
             : 'bg-white12'
         } rounded-[7px] transition-all duration-300 border-[2px] border-black`}
         style={{
-          width: `${activeTabWidth * 1.032}px`,
+          width: `${activeTabWidth}px`,
           transform: `translateX(${activeTabOffset}px)`,
         }}
       ></div>
