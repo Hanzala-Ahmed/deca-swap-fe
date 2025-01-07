@@ -96,8 +96,9 @@ const SELSection = () => {
               setBuyAmount(sellAmount);
             }
           }}
-          className="absolute items-center flex justify-center cursor-pointer rounded-[6px] overflow-hidden right-[calc(50%_-_42px)] top-[calc(50%_-_2rem)] rotate-45"
+          className="absolute items-center flex border-[#1F1F1F] border-[2px] border-opacity-60 bg-[#0D0D0D] justify-center cursor-pointer rounded-[6px] right-[calc(50%_-_42px)] top-[calc(50%_-_2rem)] rotate-45 z-50"
         >
+          <div className="w-[200%] h-[23px] fixed bg-[#0D0D0D] -rotate-45 bottom-[23px] -z-10" />
           <SwapBox active={sellAmount > 0 || buyAmount > 0} />
         </div>
         {swap ? (

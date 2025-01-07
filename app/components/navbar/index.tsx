@@ -122,10 +122,22 @@ const Navbar: React.FC<Props> = ({ isBack, onBack }) => {
       </div>
 
       {/* searchbar */}
+      <div className="w-full lg:flex hidden absolute z-50 justify-center items-center h-fit">
+        <div
+          className={`
+          md:flex hidden items-center h-10 mx-2 w-full md:max-w-[200px] lg:max-w-[340px]`}
+        >
+          <Searchbar
+            onChange={(e) => setSearchValue(e.target.value)}
+            value={searchValue}
+            setValue={(e: any) => setSearchValue(e)}
+          />
+        </div>
+      </div>
+
       <div
-        className={`${
-          isBack ? 'w-full max-w-[340px]' : 'flex-1 md:ml-[210px]'
-        } md:flex hidden items-center h-10 mx-2`}
+        className={`
+          md:flex hidden lg:hidden items-center h-10 mx-2 w-full md:max-w-[200px] lg:max-w-[340px]`}
       >
         <Searchbar
           onChange={(e) => setSearchValue(e.target.value)}

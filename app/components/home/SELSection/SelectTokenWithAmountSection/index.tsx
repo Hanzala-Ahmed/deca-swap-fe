@@ -56,7 +56,7 @@ const SelectTokenWithAmountSection: React.FC<InputAmountProps> = ({
             }`}
           >
             <div
-              className={`min-w-[165px] overflow-hidden w-fit h-full bg-[#0D0D0D] group-hover:bg-[#121212] p-2 gap-[14px] flex rounded-[25px] items-center justify-between cursor-pointer uppercase font-bold
+              className={`min-w-[165px] overflow-hidden w-fit h-full bg-[#0D0D0D] group-hover:bg-tabsGradient transition-colors duration-300 p-2 gap-[14px] flex rounded-[25px] items-center justify-between cursor-pointer uppercase font-bold
                 `}
               onClick={() => setSelectedToken('')}
             >

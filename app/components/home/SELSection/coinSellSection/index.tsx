@@ -52,21 +52,19 @@ const CoinSellSection: React.FC<Props> = ({
         />
       )}
       <div
-        className={`w-full min-h-[150px] md:min-h-[167px] rounded-[15px] p-[2px] relative ${
-          swap ? 'coin-buy-clip-path' : 'coin-sell-clip-path'
-        } ${
-          amount > 0 && !inValidAmount && active && selectedToken
-            ? 'bg-primary'
-            : inValidAmount
-            ? 'bg-primaryRed'
-            : 'bg-white12'
-        }`}
+        className={`w-full min-h-[150px] md:min-h-[167px] rounded-[15px] p-[2px] relative
+
+          ${
+            amount > 0 && !inValidAmount && active && selectedToken
+              ? 'bg-primary'
+              : inValidAmount
+              ? 'bg-primaryRed'
+              : 'bg-white12'
+          }`}
         // onClick={() => setActive(!active)}
       >
         <div
           className={`w-full h-full z-20 sticky left-0 top-0 px-7 py-5 rounded-[13px] ${
-            swap ? 'coin-buy-clip-path' : 'coin-sell-clip-path'
-          } ${
             amount > 0 && !inValidAmount && active && selectedToken
               ? 'bg-gradient-to-r from-[#071310] to-[#062118]'
               : 'bg-[#0D0D0D]'
